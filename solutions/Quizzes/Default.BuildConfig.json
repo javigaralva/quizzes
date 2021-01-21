@@ -1,0 +1,266 @@
+{
+  "items": [
+    {
+      "systemName": "QuizzesMicroservice",
+      "action": "build",
+      "parameters": [
+        {
+          "configParameterName": "TotalRounds",
+          "value": 5
+        },
+        {
+          "configParameterName": "TotalRoundsPerGame",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "systemName": "QuizzesDatabase",
+      "action": "mock",
+      "mockInitialization": {
+        "records": [
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "SufragioFemenino",
+            "question": "¿Cuál fue el primer país en aprobar el sufragio femenino?",
+            "answer1": "Nueva Zelanda",
+            "answer2": "España",
+            "answer3": "Italia",
+            "answer4": "Brasil",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "HombreLuna",
+            "question": "¿En qué año llegó el hombre a la Luna?",
+            "answer1": "1969",
+            "answer2": "1970",
+            "answer3": "1971",
+            "answer4": "1972",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "Batalla1815",
+            "question": "¿Qué importante batalla tuvo lugar en 1815?",
+            "answer1": "Segunda guerra mundial",
+            "answer2": "La batalla de Waterloo",
+            "answer3": "Primera guerra mundial",
+            "answer4": "Guerra civil española",
+            "correctAnswer": 2
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "MarcoPolo",
+            "question": "¿Cuál era la ciudad hogar de Marco Polo?",
+            "answer1": "Madrid",
+            "answer2": "Toledo",
+            "answer3": "Venecia",
+            "answer4": "Valencia",
+            "correctAnswer": 3
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "Ruanda",
+            "question": "¿En qué año tuvo lugar el genocidio de Ruanda?",
+            "answer1": "1912",
+            "answer2": "1950",
+            "answer3": "1792",
+            "answer4": "1994",
+            "correctAnswer": 4
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "Presidente",
+            "question": "¿Quién fue el primer presidente de la democracia española después del franquismo?",
+            "answer1": "Adolfo Suárez",
+            "answer2": "Zapatero",
+            "answer3": "Rajoy",
+            "answer4": "Francisco Franco",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "HijaReyes",
+            "question": "¿Qué reina británica fue hija de los Reyes Católicos?",
+            "answer1": "Felipa La hermosa",
+            "answer2": "Catalina de Aragón",
+            "answer3": "Josefina",
+            "answer4": "Juana de Marichalar",
+            "correctAnswer": 2
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "TraductoraHernan",
+            "question": "¿Por qué nombre se conocía a la traductora e intérprete del conquistador Hernán Cortés en tierras aztecas?",
+            "answer1": "Malinche",
+            "answer2": "Kulkulkán",
+            "answer3": "Maricelanda",
+            "answer4": "Zurra, la elegida",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "UnionSovietica",
+            "question": "¿En qué año se disolvió la Unión Soviética?",
+            "answer1": "1991",
+            "answer2": "1921",
+            "answer3": "1999",
+            "answer4": "2000",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Historia",
+            "quizId": "EdadMedia",
+            "question": "¿Qué suceso marca el final de la Edad Antigua y el inicio de la Edad Media?",
+            "answer1": "Llegaron los reyes magos",
+            "answer2": "Murió Jesucristo",
+            "answer3": "La caída del imperio romano de Occidente, en el 476 d.C.",
+            "answer4": "Nació Jesucristo",
+            "correctAnswer": 3
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "SolTierra",
+            "question": "¿En qué mes el Sol está más cerca de la Tierra?",
+            "answer1": "Diciembre.",
+            "answer2": "Enero.",
+            "answer3": "Febrero.",
+            "answer4": "Marzo.",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Higado",
+            "question": "¿En qué lado del cuerpo está el hígado?",
+            "answer1": "En el derecho",
+            "answer2": "En el izquierdo",
+            "answer3": "En el centro",
+            "answer4": "Arriba",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Pi",
+            "question": "¿Qué número viene después del 14 en los decimales del Pi?",
+            "answer1": "0",
+            "answer2": "1",
+            "answer3": "2",
+            "answer4": "4",
+            "correctAnswer": 2
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Tabla",
+            "question": "¿Cuántos elementos tiene la tabla periódica?",
+            "answer1": "128",
+            "answer2": "122",
+            "answer3": "118",
+            "answer4": "432",
+            "correctAnswer": 3
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Radiacion",
+            "question": "¿Qué gas de la atmósfera nos protege de la radiación ultravioleta?",
+            "answer1": "Hidrógeno",
+            "answer2": "Oxígeno",
+            "answer3": "El ozono",
+            "answer4": "Flúor",
+            "correctAnswer": 3
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Adn",
+            "question": "¿Cuáles son las bases nitrogenadas del ADN?",
+            "answer1": "Todas",
+            "answer2": "No tiene bases",
+            "answer3": "Josefina, Marcelina, Pan y Vina",
+            "answer4": "Adenina, timina, guanina y citosina.",
+            "correctAnswer": 4
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Luz",
+            "question": "¿Cuál es la velocidad de la luz?",
+            "answer1": "10 Km/h",
+            "answer2": "La misma que la del sonido",
+            "answer3": "300.000 kilómetros por segundo.",
+            "answer4": "Infinito",
+            "correctAnswer": 3
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Sentidos",
+            "question": "De los cinco sentidos, ¿cuál es el que se desarrolla primero?",
+            "answer1": "El olfato.",
+            "answer2": "Todos a la vez",
+            "answer3": "El tacto",
+            "answer4": "Ninguno",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Elemento",
+            "question": "¿Qué elemento está presente en absolutamente todas las moléculas orgánicas?",
+            "answer1": "El carbono",
+            "answer2": "Hierro",
+            "answer3": "El oxígeno",
+            "answer4": "Hidrógeno",
+            "correctAnswer": 1
+          },
+          {
+            "rdsTableName": "Quiz",
+            "topicId": "Ciencia",
+            "quizId": "Mitosis",
+            "question": "¿Cómo se llama el proceso celular en el que una célula se divide para dar lugar a dos células hijas iguales?",
+            "answer1": "Mocosis",
+            "answer2": "Mitosis",
+            "answer3": "Remosis",
+            "answer4": "Otitis",
+            "correctAnswer": 2
+          },
+          {
+            "rdsTableName": "Topic",
+            "topicId": "Ciencia",
+            "name": "Ciencia"
+          },
+          {
+            "rdsTableName": "Topic",
+            "topicId": "Deportes",
+            "name": "Deportes"
+          },
+          {
+            "rdsTableName": "Topic",
+            "topicId": "Historia",
+            "name": "Historia"
+          },
+          {
+            "rdsTableName": "Topic",
+            "topicId": "Random",
+            "name": "Random"
+          }
+        ]
+      }
+    }
+  ]
+}

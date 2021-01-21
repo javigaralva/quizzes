@@ -1,0 +1,50 @@
+{
+  "autoincrementalPrimaryKey": true,
+  "columns": [
+    {
+      "alias": "gameId",
+      "name": "GAME_ID",
+      "primaryKey": true,
+      "type": "integer"
+    },
+    {
+      "name": "TOPIC_ID",
+      "alias": "topicId",
+      "type": "integer"
+    },
+    {
+      "alias": "playerName",
+      "name": "PLAYER_NAME",
+      "type": "string"
+    },
+    {
+      "alias": "startTime",
+      "name": "START_TIME",
+      "type": "datetime"
+    },
+    {
+      "alias": "endTime",
+      "name": "END_TIME",
+      "type": "datetime"
+    }
+  ],
+  "foreignKeys": [
+    {
+      "name": "topic",
+      "alias": "topic",
+      "rdsTableName": "Topic",
+      "details": [
+        {
+          "columnName": "TOPIC_ID",
+          "relatedColumnName": "TOPIC_ID"
+        }
+      ]
+    }
+  ],
+  "indexes": [],
+  "isView": false,
+  "primaryKeyName": "",
+  "sequenceName": "",
+  "tableName": "GAME",
+  "uniqueKeys": []
+}

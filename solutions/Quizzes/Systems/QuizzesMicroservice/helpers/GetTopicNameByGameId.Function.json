@@ -1,0 +1,27 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "gameId",
+        "type": "integer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "ConsoleLog",
+        "expression": "[ \"GetTopicNameByGameId\", gameId ]"
+      },
+      {
+        "command": "ConsoleLog",
+        "expression": "[ \"GetTopicNameByGameId\", RdsSelect( QuizzesDatabase.Game, This(), gameId == ^gameId ) ]"
+      },
+      {
+        "command": "Return",
+        "expression": "RdsSelectOne( QuizzesDatabase.Game, topic.name, gameId == ^gameId )"
+      }
+    ],
+    "typeReturn": "string",
+    "variables": []
+  },
+  "routing": null
+}

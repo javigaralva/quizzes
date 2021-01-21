@@ -1,0 +1,39 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "gameId",
+        "type": "integer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Set",
+        "expression": "RdsSelectOne( \n\tQuizzesDatabase.Round, \n    RdsCount( roundId ), \n    [ \n    \tgameId == ^gameId,\n        IsNotNull( endTime )\n    ]\n)",
+        "variableName": "currentRound"
+      },
+      {
+        "children": [
+          {
+            "command": "Return",
+            "expression": "1"
+          }
+        ],
+        "command": "If",
+        "expression": "IsNull( currentRound )"
+      },
+      {
+        "command": "Return",
+        "expression": "currentRound + 1"
+      }
+    ],
+    "typeReturn": "integer",
+    "variables": [
+      {
+        "name": "currentRound",
+        "type": "integer"
+      }
+    ]
+  },
+  "routing": null
+}

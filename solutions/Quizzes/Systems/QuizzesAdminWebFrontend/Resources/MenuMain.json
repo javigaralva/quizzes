@@ -1,0 +1,12 @@
+[
+    {
+      "icon": "logo.svg",
+      "text": "[[QuizEditor]]",
+      "uiComponentName": "CmpQuizEditor"
+    },
+    {
+      "icon": "logo.svg",
+      "text": "[[Game]]",
+      "uiComponentName": "CmpGame"
+    }
+]

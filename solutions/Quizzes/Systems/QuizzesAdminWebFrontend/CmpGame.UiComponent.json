@@ -1,0 +1,20 @@
+{
+  "eventsAndFunctions": [],
+  "model": [],
+  "root": {
+    "children": [
+      {
+        "color": "default",
+        "name": "label1",
+        "text": "Game",
+        "widget": "Label"
+      }
+    ],
+    "cssClass": "blz-area-default",
+    "layout": "container"
+  },
+  "routing": {
+    "path": "/game"
+  },
+  "unused": []
+}

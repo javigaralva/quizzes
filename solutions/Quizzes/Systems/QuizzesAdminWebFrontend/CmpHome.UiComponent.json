@@ -1,0 +1,36 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Navigate",
+            "expressionStartModel": "null",
+            "uiComponentName": "CmpGame"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "button1_click"
+    }
+  ],
+  "model": [],
+  "root": {
+    "children": [
+      {
+        "name": "button1",
+        "widget": "Button"
+      }
+    ],
+    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-area-main",
+    "horizontalSeparation": "large",
+    "layout": "container",
+    "verticalSeparation": "large"
+  },
+  "routing": {
+    "path": "/home"
+  },
+  "unused": []
+}

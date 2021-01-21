@@ -1,0 +1,28 @@
+{
+  "algorithm": {
+    "parameters": [],
+    "statements": [
+      {
+        "command": "ReadConfigParameter",
+        "configParameterName": "TotalRoundsPerGame",
+        "variableName": "totalRounds"
+      },
+      {
+        "command": "ConsoleLog",
+        "expression": "[ \"GetTotalRoundsPerGame\", totalRounds ]"
+      },
+      {
+        "command": "Return",
+        "expression": "totalRounds"
+      }
+    ],
+    "typeReturn": "integer",
+    "variables": [
+      {
+        "name": "totalRounds",
+        "type": "integer"
+      }
+    ]
+  },
+  "routing": null
+}

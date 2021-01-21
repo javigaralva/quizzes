@@ -1,0 +1,108 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "QuizzesMicroservice.ListTopics( null )",
+            "variableName": "topicList"
+          },
+          {
+            "command": "Load",
+            "expression": "Map( topicList, [ topicId, name ] )",
+            "widgetName": "comboboxTopic"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "topicList",
+            "type": "list( QuizzesMicroservice.Topic )"
+          }
+        ]
+      },
+      "name": "main_init"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "GetValue",
+            "variableName": "playerName",
+            "widgetName": "textboxName"
+          },
+          {
+            "command": "GetValue",
+            "variableName": "topicId",
+            "widgetName": "comboboxTopic"
+          },
+          {
+            "command": "Set",
+            "expression": "QuizzesMicroservice.StartGame( { playerName: playerName, topicId: topicId } )",
+            "variableName": "gameId"
+          },
+          {
+            "command": "Navigate",
+            "expressionStartModel": "{ gameId: gameId }",
+            "uiComponentName": "CmpRound"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "playerName",
+            "type": "string"
+          },
+          {
+            "name": "topicId",
+            "type": "integer"
+          },
+          {
+            "name": "gameId",
+            "type": "integer"
+          }
+        ]
+      },
+      "name": "buttonStartGame_click"
+    }
+  ],
+  "model": [],
+  "root": {
+    "children": [
+      {
+        "label": "NAME",
+        "name": "textboxName",
+        "widget": "TextBox"
+      },
+      {
+        "dataFormat": "key-value",
+        "label": "TOPIC",
+        "mode": "single",
+        "name": "comboboxTopic",
+        "widget": "ComboBox"
+      },
+      {
+        "align": "center",
+        "color": "primary",
+        "name": "buttonStartGame",
+        "text": "START GAME",
+        "widget": "Button"
+      }
+    ],
+    "cssClass": "blz-area-default",
+    "layout": "container"
+  },
+  "routing": {
+    "path": "/start-game"
+  },
+  "unused": [
+    {
+      "__internalName": "htmlrenderer1",
+      "name": "htmlrenderer1",
+      "widget": "HtmlRenderer"
+    }
+  ]
+}

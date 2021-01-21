@@ -1,0 +1,66 @@
+{
+  "autoincrementalPrimaryKey": true,
+  "columns": [
+    {
+      "alias": "roundId",
+      "name": "ROUND_ID",
+      "primaryKey": true,
+      "type": "integer"
+    },
+    {
+      "alias": "quizId",
+      "name": "QUIZ_ID",
+      "type": "integer"
+    },
+    {
+      "alias": "gameId",
+      "name": "GAME_ID",
+      "type": "integer"
+    },
+    {
+      "name": "START_TIME",
+      "alias": "startTime",
+      "type": "datetime"
+    },
+    {
+      "name": "END_TIME",
+      "alias": "endTime",
+      "type": "datetime"
+    },
+    {
+      "name": "WAS_CORRECT",
+      "alias": "wasCorrect",
+      "type": "boolean"
+    }
+  ],
+  "foreignKeys": [
+    {
+      "alias": "quiz",
+      "details": [
+        {
+          "columnName": "QUIZ_ID",
+          "relatedColumnName": "QUIZ_ID"
+        }
+      ],
+      "name": "quiz",
+      "rdsTableName": "Quiz"
+    },
+    {
+      "alias": "game",
+      "details": [
+        {
+          "columnName": "GAME_ID",
+          "relatedColumnName": "GAME_ID"
+        }
+      ],
+      "name": "game",
+      "rdsTableName": "Game"
+    }
+  ],
+  "indexes": [],
+  "isView": false,
+  "primaryKeyName": "",
+  "sequenceName": "",
+  "tableName": "ROUND",
+  "uniqueKeys": []
+}

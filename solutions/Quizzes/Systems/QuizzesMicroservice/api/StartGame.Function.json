@@ -1,0 +1,56 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "params",
+        "type": "StartGameParams"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Set",
+        "expression": "{}",
+        "variableName": "game"
+      },
+      {
+        "command": "Set",
+        "expression": "params.playerName",
+        "variableName": "game.playerName"
+      },
+      {
+        "command": "Set",
+        "expression": "params.topicId",
+        "variableName": "game.topicId"
+      },
+      {
+        "command": "Set",
+        "expression": "Now()",
+        "variableName": "game.startTime"
+      },
+      {
+        "command": "Return",
+        "expression": "CreateGame( game )"
+      }
+    ],
+    "typeReturn": "integer",
+    "variables": [
+      {
+        "name": "game",
+        "type": "Game"
+      }
+    ]
+  },
+  "routing": {
+    "method": "POST",
+    "parameters": [
+      {
+        "bind": "params",
+        "in": "Body",
+        "name": "body",
+        "remarks": "Start Game input params (player name and topicId)"
+      }
+    ],
+    "path": "/start-game",
+    "remarks": "Starts a new game with the player name"
+  }
+}

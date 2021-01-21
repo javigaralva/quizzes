@@ -1,0 +1,74 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "gameId",
+        "type": "integer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Set",
+        "expression": "GetGame( gameId )",
+        "variableName": "game"
+      },
+      {
+        "command": "Set",
+        "expression": "RdsSelect( QuizzesDatabase.Round, quizId, gameId == ^gameId )",
+        "variableName": "quizIdsPlayed"
+      },
+      {
+        "command": "ConsoleLog",
+        "expression": "[\"quizIdsPlayed\", quizIdsPlayed]"
+      },
+      {
+        "command": "Set",
+        "expression": "RdsSelect( \n\tQuizzesDatabase.Quiz, \n    quizId, \n    [ \n    \ttopicId == ^game.topicId,\n        RdsNotIn( quizId, ^quizIdsPlayed )\n    ]\n)",
+        "variableName": "avilableQuizIdsToPick"
+      },
+      {
+        "command": "ConsoleLog",
+        "expression": "[\"avilableQuizIdsToPick\", avilableQuizIdsToPick]"
+      },
+      {
+        "children": [
+          {
+            "command": "Return",
+            "expression": "null"
+          }
+        ],
+        "command": "If",
+        "expression": "IsNull( avilableQuizIdsToPick )"
+      },
+      {
+        "command": "Set",
+        "expression": "ElementAt( avilableQuizIdsToPick, Floor( Random() * Count( avilableQuizIdsToPick ) ) )",
+        "variableName": "quizId"
+      },
+      {
+        "command": "Return",
+        "expression": "GetQuiz( quizId )"
+      }
+    ],
+    "typeReturn": "Quiz",
+    "variables": [
+      {
+        "name": "game",
+        "type": "Game"
+      },
+      {
+        "name": "quizIdsPlayed",
+        "type": "list( integer )"
+      },
+      {
+        "name": "avilableQuizIdsToPick",
+        "type": "list( integer )"
+      },
+      {
+        "name": "quizId",
+        "type": "integer"
+      }
+    ]
+  },
+  "routing": null
+}
