@@ -8,10 +8,6 @@
         "variableName": "totalRounds"
       },
       {
-        "command": "ConsoleLog",
-        "expression": "[ \"GetTotalRoundsPerGame\", totalRounds ]"
-      },
-      {
         "command": "Return",
         "expression": "totalRounds"
       }

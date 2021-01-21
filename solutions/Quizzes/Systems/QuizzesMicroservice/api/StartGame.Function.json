@@ -10,32 +10,32 @@
       {
         "command": "Set",
         "expression": "{}",
-        "variableName": "game"
+        "variableName": "newGame"
       },
       {
         "command": "Set",
         "expression": "params.playerName",
-        "variableName": "game.playerName"
+        "variableName": "newGame.playerName"
       },
       {
         "command": "Set",
         "expression": "params.topicId",
-        "variableName": "game.topicId"
+        "variableName": "newGame.topicId"
       },
       {
         "command": "Set",
         "expression": "Now()",
-        "variableName": "game.startTime"
+        "variableName": "newGame.startTime"
       },
       {
         "command": "Return",
-        "expression": "CreateGame( game )"
+        "expression": "CreateGame( newGame )"
       }
     ],
     "typeReturn": "integer",
     "variables": [
       {
-        "name": "game",
+        "name": "newGame",
         "type": "Game"
       }
     ]

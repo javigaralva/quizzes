@@ -1,10 +1,96 @@
 {
-  "eventsAndFunctions": [],
-  "model": [],
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "ReadModel",
+            "modelVariableName": "gameId",
+            "variableName": "gameId"
+          },
+          {
+            "command": "Set",
+            "expression": "QuizzesMicroservice.GetGameState( gameId )",
+            "variableName": "gameState"
+          },
+          {
+            "command": "SetValue",
+            "expression": "{ \n\tscore: gameState.score, \n    totalRounds: gameState.totalRounds,\n    playerName: gameState.playerName\n}",
+            "widgetName": "htmlrendererScore"
+          },
+          {
+            "command": "WriteModel",
+            "expression": "gameState.playerName",
+            "modelVariableName": "playerName"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "gameState",
+            "type": "QuizzesMicroservice.GameState"
+          },
+          {
+            "name": "gameId",
+            "type": "integer"
+          }
+        ]
+      },
+      "name": "main_init"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "ReadModel",
+            "modelVariableName": "playerName",
+            "variableName": "playerName"
+          },
+          {
+            "command": "Navigate",
+            "expressionStartModel": "{ playerName: playerName }",
+            "uiComponentName": "CmpStartGame"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "playerName",
+            "type": "string"
+          }
+        ]
+      },
+      "name": "buttonPlayAgain_click"
+    }
+  ],
+  "model": [
+    {
+      "name": "gameId",
+      "required": true,
+      "type": "integer"
+    },
+    {
+      "name": "playerName",
+      "required": false,
+      "type": "string"
+    }
+  ],
   "root": {
     "children": [
       {
-        "name": "button1",
+        "cssClass": "blz-padding-bottom-large",
+        "htmlTemplate": "<center>\n  <h2>Congratulations {{playerName}}!</h2>\n  <h3>Your score was:</h3>\n  <h1>{{score}} / {{totalRounds}}</h1>\n</center>",
+        "name": "htmlrendererScore",
+        "widget": "HtmlRenderer"
+      },
+      {
+        "align": "center",
+        "color": "primary",
+        "cssClass": "blz-padding-top-large",
+        "name": "buttonPlayAgain",
+        "text": "PLAY AGAIN",
         "widget": "Button"
       }
     ],

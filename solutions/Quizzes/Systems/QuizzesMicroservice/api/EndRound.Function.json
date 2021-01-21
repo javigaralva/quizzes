@@ -1,9 +1,143 @@
 {
   "algorithm": {
-    "parameters": [],
-    "statements": [],
-    "typeReturn": null,
-    "variables": []
+    "parameters": [
+      {
+        "name": "params",
+        "type": "EndRoundParams"
+      }
+    ],
+    "statements": [
+      {
+        "command": "ConsoleLog",
+        "expression": "[ \"END ROUND BEGIN\", params ]"
+      },
+      {
+        "command": "Set",
+        "expression": "GetLastRound( params.gameId )",
+        "variableName": "currentRound"
+      },
+      {
+        "children": [
+          {
+            "command": "Throw",
+            "errorName": "Error",
+            "expressionData": "\"User didn't play any round\"",
+            "expressionInnerError": "null"
+          }
+        ],
+        "command": "If",
+        "expression": "IsNull( currentRound )"
+      },
+      {
+        "command": "Set",
+        "expression": "GetQuiz( currentRound.quizId )",
+        "variableName": "quiz"
+      },
+      {
+        "command": "Set",
+        "expression": "params.userAnswer == quiz.correctAnswer",
+        "variableName": "wasCorrect"
+      },
+      {
+        "command": "Set",
+        "expression": "Now()",
+        "variableName": "currentRound.endTime"
+      },
+      {
+        "command": "Set",
+        "expression": "wasCorrect",
+        "variableName": "currentRound.wasCorrect"
+      },
+      {
+        "command": "Execute",
+        "expression": "UpdateRound( currentRound.roundId, currentRound )"
+      },
+      {
+        "command": "ConsoleLog",
+        "expression": "[ { currentRound: currentRound } ]"
+      },
+      {
+        "command": "Set",
+        "expression": "GetRoundsPlayed( params.gameId ) >= GetTotalRoundsPerGame()",
+        "variableName": "isGameEnded"
+      },
+      {
+        "children": [
+          {
+            "command": "ConsoleLog",
+            "expression": "\"Finalizamos la partida\""
+          },
+          {
+            "command": "Execute",
+            "expression": "EndGame( params.gameId )"
+          }
+        ],
+        "command": "If",
+        "expression": "isGameEnded"
+      },
+      {
+        "command": "Set",
+        "expression": "{}",
+        "variableName": "response"
+      },
+      {
+        "command": "Set",
+        "expression": "quiz.correctAnswer",
+        "variableName": "response.correctAnwser"
+      },
+      {
+        "command": "Set",
+        "expression": "isGameEnded",
+        "variableName": "response.isGameEnded"
+      },
+      {
+        "command": "ConsoleLog",
+        "expression": "[ \"END ROUND END\", response ]"
+      },
+      {
+        "command": "Return",
+        "expression": "response"
+      }
+    ],
+    "typeReturn": "EndRoundResponse",
+    "variables": [
+      {
+        "name": "response",
+        "type": "EndRoundResponse"
+      },
+      {
+        "name": "currentRound",
+        "type": "Round"
+      },
+      {
+        "name": "quiz",
+        "type": "Quiz"
+      },
+      {
+        "name": "wasCorrect",
+        "type": "boolean"
+      },
+      {
+        "name": "roundsPlayed",
+        "type": "integer"
+      },
+      {
+        "name": "isGameEnded",
+        "type": "boolean"
+      }
+    ]
   },
-  "routing": null
+  "routing": {
+    "method": "POST",
+    "parameters": [
+      {
+        "bind": "params",
+        "in": "Body",
+        "name": "body",
+        "remarks": "End round parameters (gameId and user answer)"
+      }
+    ],
+    "path": "/end-round",
+    "remarks": "Finish the current round and returns the correct anwser"
+  }
 }

@@ -10,27 +10,17 @@
       {
         "command": "Set",
         "expression": "RdsSelectOne( \n\tQuizzesDatabase.Round, \n    RdsCount( roundId ), \n    [ \n    \tgameId == ^gameId,\n        IsNotNull( endTime )\n    ]\n)",
-        "variableName": "currentRound"
-      },
-      {
-        "children": [
-          {
-            "command": "Return",
-            "expression": "1"
-          }
-        ],
-        "command": "If",
-        "expression": "IsNull( currentRound )"
+        "variableName": "roundsPlayed"
       },
       {
         "command": "Return",
-        "expression": "currentRound + 1"
+        "expression": "roundsPlayed"
       }
     ],
     "typeReturn": "integer",
     "variables": [
       {
-        "name": "currentRound",
+        "name": "roundsPlayed",
         "type": "integer"
       }
     ]

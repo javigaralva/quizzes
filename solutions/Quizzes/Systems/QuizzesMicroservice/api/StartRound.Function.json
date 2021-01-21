@@ -8,55 +8,33 @@
     ],
     "statements": [
       {
-        "command": "Set",
-        "expression": "GetTopicNameByGameId( gameId )",
-        "variableName": "topicName"
+        "command": "ConsoleLog",
+        "expression": "[ \"START ROUND BEGIN\", gameId ]"
       },
       {
         "command": "Set",
-        "expression": "GetScore( gameId )",
-        "variableName": "score"
-      },
-      {
-        "command": "Set",
-        "expression": "GetCurrentRoundNumber( gameId )",
-        "variableName": "currentRound"
-      },
-      {
-        "command": "Set",
-        "expression": "GetTotalRoundsPerGame()",
-        "variableName": "totalRounds"
-      },
-      {
-        "children": [
-          {
-            "command": "Set",
-            "expression": "totalRounds",
-            "variableName": "currentRound"
-          }
-        ],
-        "command": "If",
-        "expression": "currentRound > totalRounds"
-      },
-      {
-        "command": "Set",
-        "expression": "GetLastRound( gameId )",
-        "variableName": "round"
+        "expression": "GetGameState( gameId )",
+        "variableName": "gameState"
       },
       {
         "command": "ConsoleLog",
-        "expression": "{topicName:topicName, score:score, currentRound:currentRound, totalRounds:totalRounds, round:round}"
+        "expression": "gameState"
+      },
+      {
+        "command": "Set",
+        "expression": "gameState.currentRound <= gameState.totalRounds && IsNull( gameState.currentQuiz )",
+        "variableName": "hasToCreateNewRound"
       },
       {
         "children": [
           {
             "command": "Set",
             "expression": "GetRandomQuiz( gameId )",
-            "variableName": "quiz"
+            "variableName": "randomQuiz"
           },
           {
             "command": "ConsoleLog",
-            "expression": "[\"random quiz\", quiz]"
+            "expression": "[\"random quiz\", randomQuiz]"
           },
           {
             "children": [
@@ -68,105 +46,69 @@
               }
             ],
             "command": "If",
-            "expression": "IsNull( quiz )"
+            "expression": "IsNull( randomQuiz )"
           },
           {
             "command": "Set",
             "expression": "{}",
-            "variableName": "round"
+            "variableName": "newRound"
           },
           {
             "command": "Set",
             "expression": "gameId",
-            "variableName": "round.gameId"
+            "variableName": "newRound.gameId"
           },
           {
             "command": "Set",
-            "expression": "quiz.quizId",
-            "variableName": "round.quizId"
+            "expression": "randomQuiz.quizId",
+            "variableName": "newRound.quizId"
           },
           {
             "command": "Set",
             "expression": "Now()",
-            "variableName": "round.startTime"
+            "variableName": "newRound.startTime"
           },
           {
             "command": "Execute",
-            "expression": "CreateRound( round )"
+            "expression": "CreateRound( newRound )"
+          },
+          {
+            "command": "Set",
+            "expression": "randomQuiz.quizId",
+            "variableName": "gameState.currentQuiz.roundId"
+          },
+          {
+            "command": "Set",
+            "expression": "randomQuiz.question",
+            "variableName": "gameState.currentQuiz.question"
+          },
+          {
+            "command": "Set",
+            "expression": "randomQuiz.answer1",
+            "variableName": "gameState.currentQuiz.answer1"
+          },
+          {
+            "command": "Set",
+            "expression": "randomQuiz.answer2",
+            "variableName": "gameState.currentQuiz.answer2"
+          },
+          {
+            "command": "Set",
+            "expression": "randomQuiz.answer3",
+            "variableName": "gameState.currentQuiz.answer3"
+          },
+          {
+            "command": "Set",
+            "expression": "randomQuiz.answer4",
+            "variableName": "gameState.currentQuiz.answer4"
           }
         ],
         "command": "If",
-        "expression": "IsRoundEnded( round )"
+        "expression": "hasToCreateNewRound"
       },
       {
-        "children": [
-          {
-            "command": "Set",
-            "expression": "round.quiz",
-            "variableName": "quiz"
-          }
-        ],
-        "command": "Else"
-      },
-      {
-        "command": "Set",
-        "expression": "{}",
-        "variableName": "gameState"
-      },
-      {
-        "command": "Set",
-        "expression": "gameId",
-        "variableName": "gameState.gameId"
-      },
-      {
-        "command": "Set",
-        "expression": "score",
-        "variableName": "gameState.score"
-      },
-      {
-        "command": "Set",
-        "expression": "currentRound",
-        "variableName": "gameState.currentRound"
-      },
-      {
-        "command": "Set",
-        "expression": "totalRounds",
-        "variableName": "gameState.totalRounds"
-      },
-      {
-        "command": "Set",
-        "expression": "{}",
-        "variableName": "gameState.currentQuiz"
-      },
-      {
-        "command": "Set",
-        "expression": "quiz.question",
-        "variableName": "gameState.currentQuiz.question"
-      },
-      {
-        "command": "Set",
-        "expression": "quiz.answer1",
-        "variableName": "gameState.currentQuiz.answer1"
-      },
-      {
-        "command": "Set",
-        "expression": "quiz.answer2",
-        "variableName": "gameState.currentQuiz.answer2"
-      },
-      {
-        "command": "Set",
-        "expression": "quiz.answer3",
-        "variableName": "gameState.currentQuiz.answer3"
-      },
-      {
-        "command": "Set",
-        "expression": "quiz.answer4",
-        "variableName": "gameState.currentQuiz.answer4"
-      },
-      {
-        "command": "Set",
-        "expression": "topicName",
-        "variableName": "gameState.currentQuiz.topic"
+        "command": "ConsoleLog",
+        "expression": "[\"START ROUND END\", gameState]"
       },
       {
         "command": "Return",
@@ -176,40 +118,20 @@
     "typeReturn": "GameState",
     "variables": [
       {
+        "name": "newRound",
+        "type": "Round"
+      },
+      {
         "name": "gameState",
         "type": "GameState"
-      },
-      {
-        "name": "score",
-        "type": "integer"
-      },
-      {
-        "name": "currentRound",
-        "type": "integer"
-      },
-      {
-        "name": "totalRounds",
-        "type": "integer"
-      },
-      {
-        "name": "currentQuiz",
-        "type": "RoundQuiz"
       },
       {
         "name": "randomQuiz",
         "type": "Quiz"
       },
       {
-        "name": "round",
-        "type": "Round"
-      },
-      {
-        "name": "quiz",
-        "type": "Quiz"
-      },
-      {
-        "name": "topicName",
-        "type": "string"
+        "name": "hasToCreateNewRound",
+        "type": "boolean"
       }
     ]
   },

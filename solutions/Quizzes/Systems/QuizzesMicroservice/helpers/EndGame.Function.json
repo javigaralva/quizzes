@@ -8,11 +8,11 @@
     ],
     "statements": [
       {
-        "command": "Return",
-        "expression": "RdsSelectOne( QuizzesDatabase.Game, topic.name, gameId == ^gameId )"
+        "command": "Execute",
+        "expression": "RdsUpdate( QuizzesDatabase.Game, { endTime: Now() }, gameId == ^gameId )"
       }
     ],
-    "typeReturn": "string",
+    "typeReturn": "any",
     "variables": []
   },
   "routing": null

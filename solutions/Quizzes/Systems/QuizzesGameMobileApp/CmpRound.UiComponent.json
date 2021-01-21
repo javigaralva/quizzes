@@ -15,30 +15,14 @@
             "variableName": "gameState"
           },
           {
-            "children": [
-              {
-                "command": "Navigate",
-                "expressionStartModel": "{ gameState: gameState }",
-                "uiComponentName": "CmpStartGame"
-              }
-            ],
-            "command": "If",
-            "expression": "gameState.currentRound > gameState.totalRounds"
+            "command": "SetValue",
+            "expression": "{ \n\tcurrentRound: gameState.currentRound,\n    totalRounds: gameState.totalRounds,\n\tquestion: gameState.currentQuiz.question\n}",
+            "widgetName": "htmlrendererQuestion"
           },
           {
-            "children": [
-              {
-                "command": "SetValue",
-                "expression": "{ question: gameState.currentQuiz.question }",
-                "widgetName": "htmlrendererQuestion"
-              },
-              {
-                "command": "Load",
-                "expression": "[ \n[ 1, gameState.currentQuiz.answer1 ], \n[ 2, gameState.currentQuiz.answer2 ], \n[ 3, gameState.currentQuiz.answer3 ], \n[ 4, gameState.currentQuiz.answer4 ]\n]",
-                "widgetName": "optiongroupAnswers"
-              }
-            ],
-            "command": "Else"
+            "command": "Load",
+            "expression": "[ \n[ 1, gameState.currentQuiz.answer1 ], \n[ 2, gameState.currentQuiz.answer2 ], \n[ 3, gameState.currentQuiz.answer3 ], \n[ 4, gameState.currentQuiz.answer4 ]\n]",
+            "widgetName": "optiongroupAnswers"
           }
         ],
         "typeReturn": "any",
@@ -54,6 +38,104 @@
         ]
       },
       "name": "main_init"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "ReadModel",
+            "modelVariableName": "gameId",
+            "variableName": "gameId"
+          },
+          {
+            "command": "GetValue",
+            "variableName": "userAnswer",
+            "widgetName": "optiongroupAnswers"
+          },
+          {
+            "children": [
+              {
+                "command": "AlertMessage",
+                "expressionMessage": "\"Please select and anwser\"",
+                "expressionTitle": "\"Please select and anwser\"",
+                "severity": "error"
+              },
+              {
+                "command": "Return",
+                "expression": "null"
+              }
+            ],
+            "command": "If",
+            "expression": "IsNull( userAnswer )"
+          },
+          {
+            "command": "Set",
+            "expression": "QuizzesMicroservice.EndRound( { gameId: gameId, userAnswer: userAnswer } )",
+            "variableName": "response"
+          },
+          {
+            "children": [
+              {
+                "command": "AlertMessage",
+                "expressionMessage": "\"CORRECT!\"",
+                "expressionTitle": "\"CORRECT!\"",
+                "severity": "information"
+              }
+            ],
+            "command": "If",
+            "expression": "response.correctAnwser == userAnswer"
+          },
+          {
+            "children": [
+              {
+                "command": "AlertMessage",
+                "expressionMessage": "\"INCORRECT! The the correct anwser was: ...\"",
+                "expressionTitle": "\"INCORRECT!\"",
+                "severity": "error"
+              }
+            ],
+            "command": "Else"
+          },
+          {
+            "children": [
+              {
+                "command": "Navigate",
+                "expressionStartModel": "{ gameId: gameId }",
+                "uiComponentName": "CmpEndGame"
+              }
+            ],
+            "command": "If",
+            "expression": "response.isGameEnded"
+          },
+          {
+            "children": [
+              {
+                "command": "Navigate",
+                "expressionStartModel": "{ gameId: gameId }",
+                "uiComponentName": "CmpRound"
+              }
+            ],
+            "command": "Else"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "gameId",
+            "type": "integer"
+          },
+          {
+            "name": "userAnswer",
+            "type": "integer"
+          },
+          {
+            "name": "response",
+            "type": "QuizzesMicroservice.EndRoundResponse"
+          }
+        ]
+      },
+      "name": "buttonSendAnswer_click"
     }
   ],
   "model": [
@@ -71,7 +153,7 @@
         "children": [
           {
             "cssClass": "blz-padding-right-large blz-padding-left-large",
-            "htmlTemplate": "<h2>\n  {{question}}\n</h2>",
+            "htmlTemplate": "<center>\n  <h3> Question {{currentRound}} / {{totalRounds}} </h3>\n  <h2> {{question}} </h2>\n</center>",
             "name": "htmlrendererQuestion",
             "widget": "HtmlRenderer"
           },
@@ -81,6 +163,7 @@
                 "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
                 "dataFormat": "key-value",
                 "display": "normal",
+                "mandatory": true,
                 "mode": "single",
                 "name": "optiongroupAnswers",
                 "size": "12/12",

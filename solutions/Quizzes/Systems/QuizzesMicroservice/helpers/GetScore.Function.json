@@ -8,32 +8,12 @@
     ],
     "statements": [
       {
-        "command": "Set",
-        "expression": "RdsSelectOne( \n\tQuizzesDatabase.Round, \n    RdsCount( gameId ),\n    [ \n    \tgameId == ^gameId,\n        wasCorrect == true\n    ]\n)",
-        "variableName": "score"
-      },
-      {
-        "children": [
-          {
-            "command": "Return",
-            "expression": "0"
-          }
-        ],
-        "command": "If",
-        "expression": "IsNull( score )"
-      },
-      {
         "command": "Return",
-        "expression": "score"
+        "expression": "RdsSelectOne( \n\tQuizzesDatabase.Round, \n    RdsCount( roundId ),\n    [\n    \tgameId == ^gameId,\n        wasCorrect != false\n    ]\n)"
       }
     ],
     "typeReturn": "integer",
-    "variables": [
-      {
-        "name": "score",
-        "type": "integer"
-      }
-    ]
+    "variables": []
   },
   "routing": null
 }

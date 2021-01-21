@@ -5,6 +5,16 @@
         "parameters": [],
         "statements": [
           {
+            "command": "ReadModel",
+            "modelVariableName": "playerName",
+            "variableName": "playerName"
+          },
+          {
+            "command": "SetValue",
+            "expression": "playerName",
+            "widgetName": "textboxName"
+          },
+          {
             "command": "Set",
             "expression": "QuizzesMicroservice.ListTopics( null )",
             "variableName": "topicList"
@@ -20,6 +30,10 @@
           {
             "name": "topicList",
             "type": "list( QuizzesMicroservice.Topic )"
+          },
+          {
+            "name": "playerName",
+            "type": "string"
           }
         ]
       },
@@ -35,9 +49,41 @@
             "widgetName": "textboxName"
           },
           {
+            "children": [
+              {
+                "command": "AlertMessage",
+                "expressionMessage": "\"Please, provided a name\"",
+                "expressionTitle": "\"Required field\"",
+                "severity": "error"
+              },
+              {
+                "command": "Return",
+                "expression": "null"
+              }
+            ],
+            "command": "If",
+            "expression": "IsNull( playerName )"
+          },
+          {
             "command": "GetValue",
             "variableName": "topicId",
             "widgetName": "comboboxTopic"
+          },
+          {
+            "children": [
+              {
+                "command": "AlertMessage",
+                "expressionMessage": "\"Please, select a topic\"",
+                "expressionTitle": "\"Required field\"",
+                "severity": "error"
+              },
+              {
+                "command": "Return",
+                "expression": "null"
+              }
+            ],
+            "command": "If",
+            "expression": "IsNull( topicId )"
           },
           {
             "command": "Set",
@@ -69,7 +115,13 @@
       "name": "buttonStartGame_click"
     }
   ],
-  "model": [],
+  "model": [
+    {
+      "name": "playerName",
+      "required": false,
+      "type": "string"
+    }
+  ],
   "root": {
     "children": [
       {
