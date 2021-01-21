@@ -5,6 +5,14 @@
         "parameters": [],
         "statements": [
           {
+            "command": "Hide",
+            "widgetName": "iconCorrect"
+          },
+          {
+            "command": "Hide",
+            "widgetName": "iconIncorrect"
+          },
+          {
             "command": "ReadModel",
             "modelVariableName": "gameId",
             "variableName": "gameId"
@@ -15,13 +23,23 @@
             "variableName": "gameState"
           },
           {
+            "command": "Set",
+            "expression": "[ \n  [ 1, gameState.currentQuiz.answer1 ], \n  [ 2, gameState.currentQuiz.answer2 ], \n  [ 3, gameState.currentQuiz.answer3 ], \n  [ 4, gameState.currentQuiz.answer4 ]\n]",
+            "variableName": "answers"
+          },
+          {
+            "command": "WriteModel",
+            "expression": "answers",
+            "modelVariableName": "answers"
+          },
+          {
             "command": "SetValue",
             "expression": "{ \n\tcurrentRound: gameState.currentRound,\n    totalRounds: gameState.totalRounds,\n\tquestion: gameState.currentQuiz.question\n}",
             "widgetName": "htmlrendererQuestion"
           },
           {
             "command": "Load",
-            "expression": "[ \n[ 1, gameState.currentQuiz.answer1 ], \n[ 2, gameState.currentQuiz.answer2 ], \n[ 3, gameState.currentQuiz.answer3 ], \n[ 4, gameState.currentQuiz.answer4 ]\n]",
+            "expression": "answers",
             "widgetName": "optiongroupAnswers"
           }
         ],
@@ -34,6 +52,10 @@
           {
             "name": "gameId",
             "type": "integer"
+          },
+          {
+            "name": "answers",
+            "type": "list( tuple( integer, string ) )"
           }
         ]
       },
@@ -75,12 +97,18 @@
             "variableName": "response"
           },
           {
+            "command": "Hide",
+            "widgetName": "quizContainer"
+          },
+          {
             "children": [
               {
-                "command": "AlertMessage",
-                "expressionMessage": "\"CORRECT!\"",
-                "expressionTitle": "\"CORRECT!\"",
-                "severity": "information"
+                "command": "Show",
+                "widgetName": "iconCorrect"
+              },
+              {
+                "command": "Sleep",
+                "expressionMilliseconds": "1000"
               }
             ],
             "command": "If",
@@ -89,10 +117,27 @@
           {
             "children": [
               {
-                "command": "AlertMessage",
-                "expressionMessage": "\"INCORRECT! The the correct anwser was: ...\"",
-                "expressionTitle": "\"INCORRECT!\"",
-                "severity": "error"
+                "command": "ReadModel",
+                "modelVariableName": "answers",
+                "variableName": "answers"
+              },
+              {
+                "command": "Set",
+                "expression": "FindFirst( answers, First( This() ) == ^response.correctAnwser )[ 1 ]",
+                "variableName": "correctAnswer"
+              },
+              {
+                "command": "SetValue",
+                "expression": "{ correctAnswer: correctAnswer }",
+                "widgetName": "htmlrendererCorrectAnswer"
+              },
+              {
+                "command": "Show",
+                "widgetName": "iconIncorrect"
+              },
+              {
+                "command": "Sleep",
+                "expressionMilliseconds": "2000"
               }
             ],
             "command": "Else"
@@ -132,6 +177,14 @@
           {
             "name": "response",
             "type": "QuizzesMicroservice.EndRoundResponse"
+          },
+          {
+            "name": "correctAnswer",
+            "type": "string"
+          },
+          {
+            "name": "answers",
+            "type": "list( tuple( integer, string ) )"
           }
         ]
       },
@@ -143,48 +196,88 @@
       "name": "gameId",
       "required": true,
       "type": "integer"
+    },
+    {
+      "name": "answers",
+      "required": false,
+      "type": "list( tuple( integer, string ) )"
     }
   ],
   "root": {
     "alignItems": "center",
     "children": [
       {
+        "children": [
+          {
+            "alignItems": "center",
+            "children": [
+              {
+                "cssClass": "blz-padding-right-large blz-padding-left-large",
+                "htmlTemplate": "<center>\n  <h4> Question {{currentRound}} / {{totalRounds}} </h4>\n  <h3> {{question}} </h3>\n</center>",
+                "name": "htmlrendererQuestion",
+                "widget": "HtmlRenderer"
+              },
+              {
+                "children": [
+                  {
+                    "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
+                    "dataFormat": "key-value",
+                    "display": "normal",
+                    "mandatory": true,
+                    "mode": "single",
+                    "name": "optiongroupAnswers",
+                    "size": "12/12",
+                    "widget": "OptionGroup"
+                  }
+                ],
+                "cssClass": "blz-padding-bottom-large",
+                "layout": "container"
+              }
+            ],
+            "layout": "container"
+          },
+          {
+            "align": "center",
+            "color": "primary",
+            "cssClass": "blz-padding-top-large",
+            "name": "buttonSendAnswer",
+            "size": "large",
+            "text": "PLAY",
+            "widget": "Button"
+          }
+        ],
+        "layout": "container",
+        "name": "quizContainer"
+      },
+      {
         "alignItems": "center",
         "children": [
           {
+            "align": "left",
+            "color": "error",
+            "icon": "remove.svg",
+            "name": "iconIncorrect",
+            "size": "xx-large",
+            "widget": "Icon"
+          },
+          {
             "cssClass": "blz-padding-right-large blz-padding-left-large",
-            "htmlTemplate": "<center>\n  <h3> Question {{currentRound}} / {{totalRounds}} </h3>\n  <h2> {{question}} </h2>\n</center>",
-            "name": "htmlrendererQuestion",
+            "htmlTemplate": "<center>\n\t<h4>The correct answer was:</h2>\n\t<h3>{{correctAnswer}}</h3>\n</center>",
+            "name": "htmlrendererCorrectAnswer",
             "widget": "HtmlRenderer"
           },
           {
-            "children": [
-              {
-                "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
-                "dataFormat": "key-value",
-                "display": "normal",
-                "mandatory": true,
-                "mode": "single",
-                "name": "optiongroupAnswers",
-                "size": "12/12",
-                "widget": "OptionGroup"
-              }
-            ],
-            "cssClass": "blz-padding-bottom-large",
-            "layout": "container",
-            "size": "7/12"
+            "align": "left",
+            "color": "success",
+            "icon": "correct.svg",
+            "name": "iconCorrect",
+            "size": "xx-large",
+            "widget": "Icon"
           }
         ],
-        "layout": "container"
-      },
-      {
-        "align": "center",
-        "color": "primary",
-        "cssClass": "blz-padding-top-large",
-        "name": "buttonSendAnswer",
-        "size": "large",
-        "text": "NEXT",
-        "widget": "Button"
+        "cssClass": "blz-area-default",
+        "layout": "container",
+        "name": "responseQuizContainer"
       }
     ],
     "cssClass": "blz-padding-top-large blz-area-default",
@@ -193,15 +286,5 @@
   "routing": {
     "path": "/round-game"
   },
-  "unused": [
-    {
-      "__internalName": "fieldQuestion",
-      "align": "center",
-      "color": "default",
-      "name": "fieldQuestion",
-      "size": "medium",
-      "verticalAlign": "center",
-      "widget": "Field"
-    }
-  ]
+  "unused": []
 }
