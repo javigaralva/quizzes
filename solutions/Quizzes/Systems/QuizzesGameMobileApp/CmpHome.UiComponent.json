@@ -21,7 +21,7 @@
     "children": [
       {
         "align": "center",
-        "color": "primary",
+        "color": "success",
         "name": "buttonStartGame",
         "text": "START GAME",
         "widget": "Button"

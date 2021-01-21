@@ -79,7 +79,7 @@
             "children": [
               {
                 "command": "AlertMessage",
-                "expressionMessage": "\"Please select and anwser\"",
+                "expressionMessage": "\"Please select an anwser\"",
                 "expressionTitle": "\"Please select and anwser\"",
                 "severity": "error"
               },
@@ -212,7 +212,7 @@
             "alignItems": "center",
             "children": [
               {
-                "cssClass": "blz-padding-right-large blz-padding-left-large",
+                "cssClass": "blz-padding-right-large blz-padding-left-large blz-area-default",
                 "htmlTemplate": "<center>\n  <h4> Question {{currentRound}} / {{totalRounds}} </h4>\n  <h3> {{question}} </h3>\n</center>",
                 "name": "htmlrendererQuestion",
                 "widget": "HtmlRenderer"
@@ -220,7 +220,7 @@
               {
                 "children": [
                   {
-                    "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
+                    "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-border-top blz-cast-shadow blz-area-default",
                     "dataFormat": "key-value",
                     "display": "normal",
                     "mandatory": true,
@@ -230,10 +230,11 @@
                     "widget": "OptionGroup"
                   }
                 ],
-                "cssClass": "blz-padding-bottom-large",
+                "cssClass": "blz-padding-top-large blz-padding-bottom-large",
                 "layout": "container"
               }
             ],
+            "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
             "layout": "container"
           },
           {

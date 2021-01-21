@@ -87,7 +87,7 @@
       },
       {
         "align": "center",
-        "color": "primary",
+        "color": "success",
         "cssClass": "blz-padding-top-large",
         "name": "buttonPlayAgain",
         "text": "PLAY AGAIN",
