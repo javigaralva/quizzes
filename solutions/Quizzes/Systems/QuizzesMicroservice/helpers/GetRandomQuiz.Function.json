@@ -42,12 +42,12 @@
       },
       {
         "command": "Set",
-        "expression": "ElementAt( avilableQuizIdsToPick, Floor( Random() * Count( avilableQuizIdsToPick ) ) )",
-        "variableName": "quizId"
+        "expression": "PickRandom( avilableQuizIdsToPick )",
+        "variableName": "randomQuizId"
       },
       {
         "command": "Return",
-        "expression": "GetQuiz( quizId )"
+        "expression": "GetQuiz( randomQuizId )"
       }
     ],
     "typeReturn": "Quiz",
@@ -65,7 +65,7 @@
         "type": "list( integer )"
       },
       {
-        "name": "quizId",
+        "name": "randomQuizId",
         "type": "integer"
       }
     ]
