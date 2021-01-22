@@ -1,0 +1,118 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "ReadModel",
+            "modelVariableName": "wasCorrect",
+            "variableName": "wasCorrect"
+          },
+          {
+            "command": "ReadModel",
+            "modelVariableName": "correctAnswer",
+            "variableName": "correctAnswer"
+          },
+          {
+            "command": "Hide",
+            "widgetName": "iconCorrect"
+          },
+          {
+            "command": "Hide",
+            "widgetName": "iconIncorrect"
+          },
+          {
+            "children": [
+              {
+                "command": "Show",
+                "widgetName": "iconCorrect"
+              }
+            ],
+            "command": "If",
+            "expression": "wasCorrect"
+          },
+          {
+            "children": [
+              {
+                "command": "SetValue",
+                "expression": "{ correctAnswer: correctAnswer }",
+                "widgetName": "htmlrendererCorrectAnswer"
+              },
+              {
+                "command": "Show",
+                "widgetName": "iconIncorrect"
+              }
+            ],
+            "command": "Else"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "wasCorrect",
+            "type": "boolean"
+          },
+          {
+            "name": "correctAnswer",
+            "type": "string"
+          }
+        ]
+      },
+      "name": "main_init"
+    }
+  ],
+  "model": [
+    {
+      "name": "wasCorrect",
+      "required": true,
+      "type": "boolean"
+    },
+    {
+      "name": "correctAnswer",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "root": {
+    "alignItems": "center",
+    "children": [
+      {
+        "alignItems": "center",
+        "children": [
+          {
+            "align": "left",
+            "color": "success",
+            "icon": "correct.svg",
+            "name": "iconCorrect",
+            "size": "xx-large",
+            "widget": "Icon"
+          },
+          {
+            "align": "left",
+            "color": "error",
+            "icon": "remove.svg",
+            "name": "iconIncorrect",
+            "size": "xx-large",
+            "widget": "Icon"
+          },
+          {
+            "cssClass": "blz-padding-right-large blz-padding-left-large",
+            "htmlTemplate": "<center>\n\t<h4>The correct answer was:</h2>\n\t<h3>{{correctAnswer}}</h3>\n</center>",
+            "name": "htmlrendererCorrectAnswer",
+            "widget": "HtmlRenderer"
+          }
+        ],
+        "cssClass": "blz-area-default",
+        "layout": "container",
+        "name": "responseQuizContainer"
+      }
+    ],
+    "cssClass": "blz-padding-top-large blz-area-default",
+    "layout": "container"
+  },
+  "routing": {
+    "path": "/round-game-result"
+  },
+  "unused": []
+}

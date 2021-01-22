@@ -5,14 +5,6 @@
         "parameters": [],
         "statements": [
           {
-            "command": "Hide",
-            "widgetName": "iconCorrect"
-          },
-          {
-            "command": "Hide",
-            "widgetName": "iconIncorrect"
-          },
-          {
             "command": "ReadModel",
             "modelVariableName": "gameId",
             "variableName": "gameId"
@@ -97,50 +89,8 @@
             "variableName": "response"
           },
           {
-            "command": "Hide",
-            "widgetName": "quizContainer"
-          },
-          {
-            "children": [
-              {
-                "command": "Show",
-                "widgetName": "iconCorrect"
-              },
-              {
-                "command": "Sleep",
-                "expressionMilliseconds": "1000"
-              }
-            ],
-            "command": "If",
-            "expression": "response.correctAnwser == userAnswer"
-          },
-          {
-            "children": [
-              {
-                "command": "ReadModel",
-                "modelVariableName": "answers",
-                "variableName": "answers"
-              },
-              {
-                "command": "Set",
-                "expression": "FindFirst( answers, First( This() ) == ^response.correctAnwser )[ 1 ]",
-                "variableName": "correctAnswer"
-              },
-              {
-                "command": "SetValue",
-                "expression": "{ correctAnswer: correctAnswer }",
-                "widgetName": "htmlrendererCorrectAnswer"
-              },
-              {
-                "command": "Show",
-                "widgetName": "iconIncorrect"
-              },
-              {
-                "command": "Sleep",
-                "expressionMilliseconds": "2000"
-              }
-            ],
-            "command": "Else"
+            "command": "Execute",
+            "expression": "showRoundResult( userAnswer, response )"
           },
           {
             "children": [
@@ -185,10 +135,85 @@
           {
             "name": "answers",
             "type": "list( tuple( integer, string ) )"
+          },
+          {
+            "name": "wasCorrect",
+            "type": "boolean"
           }
         ]
       },
       "name": "buttonSendAnswer_click"
+    },
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "userAnswer",
+            "type": "integer"
+          },
+          {
+            "name": "response",
+            "type": "QuizzesMicroservice.EndRoundResponse"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "response.correctAnwser == userAnswer",
+            "variableName": "wasCorrect"
+          },
+          {
+            "command": "ReadModel",
+            "modelVariableName": "answers",
+            "variableName": "answers"
+          },
+          {
+            "command": "Set",
+            "expression": "FindFirst( answers, First( This() ) == ^response.correctAnwser )[ 1 ]",
+            "variableName": "correctAnswer"
+          },
+          {
+            "command": "Navigate",
+            "expressionStartModel": "{ wasCorrect: wasCorrect, correctAnswer: correctAnswer }",
+            "uiComponentName": "CmpRoundResult"
+          },
+          {
+            "children": [
+              {
+                "command": "Sleep",
+                "expressionMilliseconds": "1000"
+              }
+            ],
+            "command": "If",
+            "expression": "wasCorrect"
+          },
+          {
+            "children": [
+              {
+                "command": "Sleep",
+                "expressionMilliseconds": "2000"
+              }
+            ],
+            "command": "Else"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "correctAnswer",
+            "type": "string"
+          },
+          {
+            "name": "answers",
+            "type": "list( tuple( integer, string ) )"
+          },
+          {
+            "name": "wasCorrect",
+            "type": "boolean"
+          }
+        ]
+      },
+      "name": "showRoundResult"
     }
   ],
   "model": [
@@ -249,36 +274,6 @@
         ],
         "layout": "container",
         "name": "quizContainer"
-      },
-      {
-        "alignItems": "center",
-        "children": [
-          {
-            "align": "left",
-            "color": "error",
-            "icon": "remove.svg",
-            "name": "iconIncorrect",
-            "size": "xx-large",
-            "widget": "Icon"
-          },
-          {
-            "cssClass": "blz-padding-right-large blz-padding-left-large",
-            "htmlTemplate": "<center>\n\t<h4>The correct answer was:</h2>\n\t<h3>{{correctAnswer}}</h3>\n</center>",
-            "name": "htmlrendererCorrectAnswer",
-            "widget": "HtmlRenderer"
-          },
-          {
-            "align": "left",
-            "color": "success",
-            "icon": "correct.svg",
-            "name": "iconCorrect",
-            "size": "xx-large",
-            "widget": "Icon"
-          }
-        ],
-        "cssClass": "blz-area-default",
-        "layout": "container",
-        "name": "responseQuizContainer"
       }
     ],
     "cssClass": "blz-padding-top-large blz-area-default",
@@ -287,5 +282,37 @@
   "routing": {
     "path": "/round-game"
   },
-  "unused": []
+  "unused": [
+    {
+      "__internalName": "htmlrendererCorrect",
+      "htmlTemplate": "<svg class=\"checkmark\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 52 52\">\n  <circle class=\"checkmark__circle\" cx=\"26\" cy=\"26\" r=\"25\" fill=\"none\"/>\n  <path class=\"checkmark__check\" fill=\"none\" d=\"M14.1 27.2l7.1 7.2 16.7-16.8\"/>\n</svg>",
+      "name": "htmlrendererCorrect",
+      "widget": "HtmlRenderer"
+    },
+    {
+      "__internalName": "iconIncorrect",
+      "align": "left",
+      "color": "error",
+      "icon": "remove.svg",
+      "name": "iconIncorrect",
+      "size": "xx-large",
+      "widget": "Icon"
+    },
+    {
+      "__internalName": "htmlrendererCorrectAnswer",
+      "cssClass": "blz-padding-right-large blz-padding-left-large",
+      "htmlTemplate": "<center>\n\t<h4>The correct answer was:</h2>\n\t<h3>{{correctAnswer}}</h3>\n</center>",
+      "name": "htmlrendererCorrectAnswer",
+      "widget": "HtmlRenderer"
+    },
+    {
+      "__internalName": "iconCorrect",
+      "align": "left",
+      "color": "success",
+      "icon": "correct.svg",
+      "name": "iconCorrect",
+      "size": "xx-large",
+      "widget": "Icon"
+    }
+  ]
 }
