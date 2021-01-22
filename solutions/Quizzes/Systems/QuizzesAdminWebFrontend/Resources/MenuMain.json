@@ -7,6 +7,6 @@
     {
       "icon": "logo.svg",
       "text": "[[GameLog]]",
-      "uiComponentName": "CmpGameLog"
+      "uiComponentName": "CmpListGames"
     }
 ]

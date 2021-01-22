@@ -7,16 +7,21 @@
           {
             "command": "Set",
             "expression": "[]",
-            "variableName": "grid1FilterConfigs"
+            "variableName": "gridGamesPlayedFilterConfigs"
           },
           {
             "command": "Push",
-            "expressionItem": "{ key: \"f1\", label: \"[[TopicId]]\", dataFormat: \"key-value\", dataSource: [[1, \"hola\"], [2, \"adios\" ]] }",
-            "variableNameList": "grid1FilterConfigs"
+            "expressionItem": "{ key: \"f1\", label: \"[[TopicName]]\", type: \"text\" }",
+            "variableNameList": "gridGamesPlayedFilterConfigs"
+          },
+          {
+            "command": "Push",
+            "expressionItem": "{ key: \"f2\", label: \"[[PlayerName]]\", type: \"text\" }",
+            "variableNameList": "gridGamesPlayedFilterConfigs"
           },
           {
             "command": "SetFilterConfigs",
-            "expression": "^grid1FilterConfigs",
+            "expression": "^gridGamesPlayedFilterConfigs",
             "widgetName": "gridGamesPlayed"
           },
           {
@@ -27,7 +32,7 @@
         "typeReturn": "any",
         "variables": [
           {
-            "name": "grid1FilterConfigs",
+            "name": "gridGamesPlayedFilterConfigs",
             "type": "list(FilterConfig)"
           }
         ]
@@ -50,11 +55,6 @@
           },
           {
             "command": "Set",
-            "expression": "Map(FindFirst(^args.filters, key == \"f1\"), value)",
-            "variableName": "args1.topicId"
-          },
-          {
-            "command": "Set",
             "expression": "^args.offset",
             "variableName": "args1.offset"
           },
@@ -62,6 +62,16 @@
             "command": "Set",
             "expression": "^args.limit",
             "variableName": "args1.limit"
+          },
+          {
+            "command": "Set",
+            "expression": "Map(FindFirst(^args.filters, key == \"f1\"), value)",
+            "variableName": "args1.topicName"
+          },
+          {
+            "command": "Set",
+            "expression": "Map(FindFirst(^args.filters, key == \"f2\"), value)",
+            "variableName": "args1.playerName"
           },
           {
             "command": "Return",
@@ -190,11 +200,12 @@
         ],
         "name": "gridGamesPlayed",
         "noResultsMessage": "No games played",
-        "pageSize": 2,
+        "pageSize": 20,
         "title": "Games played",
         "typeName": "QuizzesMicroservice.Game",
         "widget": "Grid",
         "withFiltering": true,
+        "withPaging": true,
         "withShowMore": true
       }
     ],

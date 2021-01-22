@@ -9,11 +9,7 @@
     "statements": [
       {
         "command": "Return",
-        "expression": "Transform( \n\tTrfGameWithTopic,\n\tRdsSelectReader(\n    \tQuizzesDatabase.Game, \n        [\n        \tRdsConditional(gameId == ^args.gameId, !IsNull(^args.gameId)), \n            RdsConditional(topicId == ^args.topicId, !IsNull(^args.topicId))\n        ], \n        gameId, \n        ^args.offset, \n        ^args.limit\n\t)\n)"
-      },
-      {
-        "command": "Return",
-        "expression": "RdsSelect(QuizzesDatabase.Game, This(), [RdsConditional(gameId == ^args.gameId, !IsNull(^args.gameId)), RdsConditional(topicId == ^args.topicId, !IsNull(^args.topicId))], gameId, ^args.offset, ^args.limit)"
+        "expression": "Transform( \n\tTrfGameWithTopic,\n\tRdsSelectReader(\n    \tQuizzesDatabase.Game, \n        [\n        \tRdsConditional(gameId == ^args.gameId, !IsNull(^args.gameId)), \n            RdsConditional(topicId == ^args.topicId, !IsNull(^args.topicId)),\n            RdsConditional( RdsLike( topic.name, \"%\" + ^args.topicName + \"%\" ), !IsNull( ^args.topicName ) ),\n            RdsConditional( RdsLike( playerName, \"%\" + ^args.playerName + \"%\" ), !IsNull( ^args.playerName ) )\n        ], \n        gameId, \n        ^args.offset, \n        ^args.limit\n\t)\n)"
       }
     ],
     "typeReturn": "list(Game)",
@@ -45,6 +41,18 @@
         "in": "Query",
         "name": "limit",
         "remarks": "Requested number results to be provided in response."
+      },
+      {
+        "bind": "args.topicName",
+        "in": "Query",
+        "name": "topicName",
+        "remarks": "Filter by topic name"
+      },
+      {
+        "bind": "args.playerName",
+        "in": "Query",
+        "name": "playerName",
+        "remarks": "Filter by player name"
       }
     ],
     "path": "/games",
