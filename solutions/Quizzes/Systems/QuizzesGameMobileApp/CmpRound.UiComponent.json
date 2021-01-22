@@ -268,7 +268,7 @@
             "cssClass": "blz-padding-top-large",
             "name": "buttonSendAnswer",
             "size": "large",
-            "text": "PLAY",
+            "text": "NEXT",
             "widget": "Button"
           }
         ],

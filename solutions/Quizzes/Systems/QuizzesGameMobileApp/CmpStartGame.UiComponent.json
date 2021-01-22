@@ -138,8 +138,9 @@
       },
       {
         "align": "center",
-        "color": "primary",
+        "color": "success",
         "name": "buttonStartGame",
+        "size": "large",
         "text": "START GAME",
         "widget": "Button"
       }

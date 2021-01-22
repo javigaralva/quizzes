@@ -28,6 +28,11 @@
         "variableName": "newGame.startTime"
       },
       {
+        "command": "Set",
+        "expression": "0",
+        "variableName": "newGame.score"
+      },
+      {
         "command": "Return",
         "expression": "CreateGame( newGame )"
       }

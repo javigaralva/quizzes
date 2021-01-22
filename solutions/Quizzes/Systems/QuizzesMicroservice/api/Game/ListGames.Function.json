@@ -9,6 +9,10 @@
     "statements": [
       {
         "command": "Return",
+        "expression": "Transform( \n\tTrfGameWithTopic,\n\tRdsSelectReader(\n    \tQuizzesDatabase.Game, \n        [\n        \tRdsConditional(gameId == ^args.gameId, !IsNull(^args.gameId)), \n            RdsConditional(topicId == ^args.topicId, !IsNull(^args.topicId))\n        ], \n        gameId, \n        ^args.offset, \n        ^args.limit\n\t)\n)"
+      },
+      {
+        "command": "Return",
         "expression": "RdsSelect(QuizzesDatabase.Game, This(), [RdsConditional(gameId == ^args.gameId, !IsNull(^args.gameId)), RdsConditional(topicId == ^args.topicId, !IsNull(^args.topicId))], gameId, ^args.offset, ^args.limit)"
       }
     ],

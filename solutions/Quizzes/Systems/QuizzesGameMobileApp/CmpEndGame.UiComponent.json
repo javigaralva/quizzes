@@ -90,6 +90,7 @@
         "color": "success",
         "cssClass": "blz-padding-top-large",
         "name": "buttonPlayAgain",
+        "size": "large",
         "text": "PLAY AGAIN",
         "widget": "Button"
       }

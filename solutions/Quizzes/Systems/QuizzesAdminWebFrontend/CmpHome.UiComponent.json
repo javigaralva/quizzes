@@ -3,13 +3,7 @@
     {
       "algorithm": {
         "parameters": [],
-        "statements": [
-          {
-            "command": "Navigate",
-            "expressionStartModel": "null",
-            "uiComponentName": "CmpGame"
-          }
-        ],
+        "statements": [],
         "typeReturn": "any",
         "variables": []
       },

@@ -1,0 +1,206 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "[]",
+            "variableName": "grid1FilterConfigs"
+          },
+          {
+            "command": "Push",
+            "expressionItem": "{ key: \"f1\", label: \"[[TopicId]]\", dataFormat: \"key-value\", dataSource: [[1, \"hola\"], [2, \"adios\" ]] }",
+            "variableNameList": "grid1FilterConfigs"
+          },
+          {
+            "command": "SetFilterConfigs",
+            "expression": "^grid1FilterConfigs",
+            "widgetName": "gridGamesPlayed"
+          },
+          {
+            "command": "Refresh",
+            "widgetName": "gridGamesPlayed"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "grid1FilterConfigs",
+            "type": "list(FilterConfig)"
+          }
+        ]
+      },
+      "name": "gridGamesPlayed_init"
+    },
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "args",
+            "type": "ArgsLoadRecords"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "{}",
+            "variableName": "args1"
+          },
+          {
+            "command": "Set",
+            "expression": "Map(FindFirst(^args.filters, key == \"f1\"), value)",
+            "variableName": "args1.topicId"
+          },
+          {
+            "command": "Set",
+            "expression": "^args.offset",
+            "variableName": "args1.offset"
+          },
+          {
+            "command": "Set",
+            "expression": "^args.limit",
+            "variableName": "args1.limit"
+          },
+          {
+            "command": "Return",
+            "expression": "QuizzesMicroservice.ListGames(^args1)"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "args1",
+            "type": "QuizzesMicroservice.ArgsListGames"
+          }
+        ]
+      },
+      "name": "gridGamesPlayed_loadRecords"
+    },
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "recordData",
+            "type": "any"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "recordData",
+            "variableName": "record"
+          },
+          {
+            "command": "Set",
+            "expression": "\"-\"",
+            "variableName": "text"
+          },
+          {
+            "children": [
+              {
+                "command": "Set",
+                "expression": "Floor( DatetimeDiff( record.endTime, record.startTime ) / 1000 )",
+                "variableName": "elapsedInSeconds"
+              },
+              {
+                "command": "Set",
+                "expression": "Concat( ConvertToString( elapsedInSeconds ), \" s\" )",
+                "variableName": "text"
+              }
+            ],
+            "command": "If",
+            "expression": "IsNotNull( record.endTime )"
+          },
+          {
+            "command": "Return",
+            "expression": "{text: text}"
+          }
+        ],
+        "typeReturn": "obj(icon:string, text:string)",
+        "variables": [
+          {
+            "name": "record",
+            "type": "QuizzesMicroservice.Game"
+          },
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "elapsedInSeconds",
+            "type": "integer"
+          }
+        ]
+      },
+      "name": "gridGamesPlayed_renderColumn_elapsed"
+    }
+  ],
+  "model": [],
+  "root": {
+    "children": [
+      {
+        "columns": [
+          {
+            "align": "left",
+            "bindText": "gameId",
+            "format": "Number",
+            "header": "[[GameId]]",
+            "size": 1
+          },
+          {
+            "align": "left",
+            "bindText": "playerName",
+            "header": "[[PlayerName]]",
+            "size": 1
+          },
+          {
+            "align": "left",
+            "bindText": "startTime",
+            "format": "DateTime",
+            "header": "[[StartTime]]",
+            "size": 1
+          },
+          {
+            "align": "left",
+            "bindText": "endTime",
+            "format": "DateTime",
+            "header": "[[EndTime]]",
+            "size": 1
+          },
+          {
+            "align": "left",
+            "bindText": "score",
+            "format": "Number",
+            "header": "[[Score]]",
+            "size": 1
+          },
+          {
+            "align": "left",
+            "bindText": "topic.name",
+            "header": "[[TopicName]]",
+            "size": 1
+          },
+          {
+            "align": "left",
+            "header": "[[elapsed]]",
+            "key": "elapsed"
+          }
+        ],
+        "name": "gridGamesPlayed",
+        "noResultsMessage": "No games played",
+        "pageSize": 2,
+        "title": "Games played",
+        "typeName": "QuizzesMicroservice.Game",
+        "widget": "Grid",
+        "withFiltering": true,
+        "withShowMore": true
+      }
+    ],
+    "cssClass": "blz-area-default",
+    "layout": "container"
+  },
+  "routing": null,
+  "unused": []
+}

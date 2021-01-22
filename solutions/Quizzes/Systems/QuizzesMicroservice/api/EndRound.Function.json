@@ -58,6 +58,26 @@
       },
       {
         "command": "Set",
+        "expression": "0",
+        "variableName": "endRoundScore"
+      },
+      {
+        "children": [
+          {
+            "command": "Set",
+            "expression": "1",
+            "variableName": "endRoundScore"
+          }
+        ],
+        "command": "If",
+        "expression": "wasCorrect"
+      },
+      {
+        "command": "Execute",
+        "expression": "UpdateEndRoundGameScore( params.gameId, endRoundScore )"
+      },
+      {
+        "command": "Set",
         "expression": "GetRoundsPlayed( params.gameId ) >= GetTotalRoundsPerGame()",
         "variableName": "isGameEnded"
       },
@@ -124,6 +144,10 @@
       {
         "name": "isGameEnded",
         "type": "boolean"
+      },
+      {
+        "name": "endRoundScore",
+        "type": "integer"
       }
     ]
   },

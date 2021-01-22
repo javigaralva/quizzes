@@ -8,8 +8,8 @@
       "type": "integer"
     },
     {
-      "name": "TOPIC_ID",
       "alias": "topicId",
+      "name": "TOPIC_ID",
       "type": "integer"
     },
     {
@@ -26,19 +26,24 @@
       "alias": "endTime",
       "name": "END_TIME",
       "type": "datetime"
+    },
+    {
+      "alias": "score",
+      "name": "SCORE",
+      "type": "integer"
     }
   ],
   "foreignKeys": [
     {
-      "name": "topic",
       "alias": "topic",
-      "rdsTableName": "Topic",
       "details": [
         {
           "columnName": "TOPIC_ID",
           "relatedColumnName": "TOPIC_ID"
         }
-      ]
+      ],
+      "name": "topic",
+      "rdsTableName": "Topic"
     }
   ],
   "indexes": [],

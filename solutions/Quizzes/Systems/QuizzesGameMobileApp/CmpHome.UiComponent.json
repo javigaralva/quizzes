@@ -18,29 +18,50 @@
   ],
   "model": [],
   "root": {
+    "alignItems": "center",
     "children": [
       {
-        "align": "center",
-        "color": "success",
-        "name": "buttonStartGame",
-        "text": "START GAME",
-        "widget": "Button"
+        "bold": true,
+        "color": "default",
+        "cssClass": "blz-padding-top-large",
+        "name": "labelWelcome",
+        "size": "large",
+        "text": "Welcome to",
+        "widget": "Label"
       },
       {
-        "align": "center",
+        "align": "left",
+        "bold": true,
         "color": "primary",
-        "name": "button3",
-        "text": "STATS",
+        "name": "labelQuizzesGame",
+        "size": "x-large",
+        "text": "Quizzes Game",
+        "widget": "Label"
+      },
+      {
+        "align": "left",
+        "color": "primary",
+        "cssClass": "blz-padding-top-large",
+        "name": "buttonStartGame",
+        "size": "large",
+        "text": "CREATE NEW GAME",
         "widget": "Button"
       }
     ],
     "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-area-main",
     "horizontalSeparation": "large",
     "layout": "container",
-    "verticalSeparation": "large"
+    "verticalSeparation": "small"
   },
   "routing": {
     "path": "/home"
   },
-  "unused": []
+  "unused": [
+    {
+      "__internalName": "htmlrenderer1",
+      "htmlTemplate": "<h2>Welcome to Quizzes Game!</h2>",
+      "name": "htmlrenderer1",
+      "widget": "HtmlRenderer"
+    }
+  ]
 }

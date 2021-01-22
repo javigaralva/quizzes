@@ -1,0 +1,99 @@
+{
+  "betweens": [],
+  "source": {
+    "elementType": "RdsTable",
+    "outputs": [
+      {
+        "codePath": "gameId",
+        "outputConnections": [
+          "c0"
+        ]
+      },
+      {
+        "codePath": "topicId",
+        "outputConnections": [
+          "c1"
+        ]
+      },
+      {
+        "codePath": "playerName",
+        "outputConnections": [
+          "c2"
+        ]
+      },
+      {
+        "codePath": "startTime",
+        "outputConnections": [
+          "c3"
+        ]
+      },
+      {
+        "codePath": "endTime",
+        "outputConnections": [
+          "c4"
+        ]
+      },
+      {
+        "codePath": "score",
+        "outputConnections": [
+          "c5"
+        ]
+      },
+      {
+        "codePath": "topic.topicId",
+        "outputConnections": [
+          "c6"
+        ]
+      },
+      {
+        "codePath": "topic.name",
+        "outputConnections": [
+          "c7"
+        ]
+      }
+    ],
+    "rdsTableName": "QuizzesDatabase.Game",
+    "x": 60,
+    "y": 60
+  },
+  "target": {
+    "elementType": "Type",
+    "inputs": [
+      {
+        "codePath": "gameId",
+        "inputConnection": "c0"
+      },
+      {
+        "codePath": "topicId",
+        "inputConnection": "c1"
+      },
+      {
+        "codePath": "playerName",
+        "inputConnection": "c2"
+      },
+      {
+        "codePath": "startTime",
+        "inputConnection": "c3"
+      },
+      {
+        "codePath": "endTime",
+        "inputConnection": "c4"
+      },
+      {
+        "codePath": "score",
+        "inputConnection": "c5"
+      },
+      {
+        "codePath": "topic.topicId",
+        "inputConnection": "c6"
+      },
+      {
+        "codePath": "topic.name",
+        "inputConnection": "c7"
+      }
+    ],
+    "typeName": "Game",
+    "x": 600,
+    "y": 60
+  }
+}

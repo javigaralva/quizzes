@@ -1,6 +1,11 @@
 {
   "items": [
     {
+      "systemName": "QuizzesAdminWebFrontend",
+      "action": "build",
+      "buildPort": 8080
+    },
+    {
       "systemName": "QuizzesMicroservice",
       "action": "build",
       "parameters": [
@@ -10,7 +15,7 @@
         },
         {
           "configParameterName": "TotalRoundsPerGame",
-          "value": 5
+          "value": 1
         }
       ]
     },

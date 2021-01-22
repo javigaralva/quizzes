@@ -51,7 +51,7 @@
       },
       {
         "command": "Set",
-        "expression": "GetScore( gameId )",
+        "expression": "game.score",
         "variableName": "gameState.score"
       },
       {
