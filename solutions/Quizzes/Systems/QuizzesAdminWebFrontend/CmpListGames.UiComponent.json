@@ -194,19 +194,18 @@
           },
           {
             "align": "left",
-            "header": "[[elapsed]]",
+            "header": "[[ElapsedTime]]",
             "key": "elapsed"
           }
         ],
         "name": "gridGamesPlayed",
         "noResultsMessage": "No games played",
-        "pageSize": 20,
+        "pageSize": 10,
         "title": "Games played",
         "typeName": "QuizzesMicroservice.Game",
         "widget": "Grid",
         "withFiltering": true,
-        "withPaging": true,
-        "withShowMore": true
+        "withPaging": true
       }
     ],
     "cssClass": "blz-area-default",
