@@ -15,7 +15,7 @@
         },
         {
           "configParameterName": "TotalRoundsPerGame",
-          "value": 10
+          "value": 5
         }
       ]
     },
@@ -258,11 +258,6 @@
             "rdsTableName": "Topic",
             "topicId": "Historia",
             "name": "Historia"
-          },
-          {
-            "rdsTableName": "Topic",
-            "topicId": "Random",
-            "name": "Random"
           }
         ]
       }
