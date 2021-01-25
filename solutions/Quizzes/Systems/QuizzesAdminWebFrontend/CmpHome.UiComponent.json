@@ -3,22 +3,121 @@
     {
       "algorithm": {
         "parameters": [],
-        "statements": [],
+        "statements": [
+          {
+            "command": "Navigate",
+            "expressionStartModel": "null",
+            "uiComponentName": "CmpListQuizzesGames"
+          }
+        ],
         "typeReturn": "any",
         "variables": []
       },
-      "name": "button1_click"
+      "name": "iconGamesQuizzes_click"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Navigate",
+            "expressionStartModel": "null",
+            "uiComponentName": "CmpQuizzesAdmin"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "iconEditQuizzes_click"
     }
   ],
   "model": [],
   "root": {
+    "alignItems": "center",
     "children": [
       {
-        "name": "button1",
-        "widget": "Button"
+        "align": "left",
+        "color": "default",
+        "name": "labelWelcome",
+        "size": "large",
+        "text": "Welcome to",
+        "widget": "Label"
+      },
+      {
+        "align": "left",
+        "color": "default",
+        "icon": "quiz-color.svg",
+        "name": "iconLogo",
+        "size": "xx-large",
+        "widget": "Icon"
+      },
+      {
+        "align": "left",
+        "bold": true,
+        "color": "primary",
+        "cssClass": "blz-padding-bottom-large",
+        "name": "labelTitle",
+        "size": "x-large",
+        "text": "Quizzes Manager",
+        "widget": "Label"
+      },
+      {
+        "alignItems": "center",
+        "children": [
+          {
+            "alignItems": "center",
+            "children": [
+              {
+                "align": "left",
+                "clickable": true,
+                "color": "secondary",
+                "icon": "quiz-edit.svg",
+                "name": "iconEditQuizzes",
+                "size": "xx-large",
+                "widget": "Icon"
+              },
+              {
+                "color": "default",
+                "name": "label3",
+                "text": "Add, edit and remove quizzes",
+                "widget": "Label"
+              }
+            ],
+            "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
+            "layout": "container",
+            "size": "5/12"
+          },
+          {
+            "alignItems": "center",
+            "children": [
+              {
+                "align": "left",
+                "clickable": true,
+                "color": "secondary",
+                "icon": "played-games.svg",
+                "name": "iconGamesQuizzes",
+                "size": "xx-large",
+                "widget": "Icon"
+              },
+              {
+                "color": "default",
+                "name": "label4",
+                "text": "List quizzes games",
+                "widget": "Label"
+              }
+            ],
+            "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
+            "layout": "container",
+            "size": "5/12"
+          }
+        ],
+        "cssClass": "blz-padding-top-large",
+        "horizontalSeparation": "large",
+        "layout": "container",
+        "size": "7/12"
       }
     ],
-    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-area-main",
+    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-area-default",
     "horizontalSeparation": "large",
     "layout": "container",
     "verticalSeparation": "large"
@@ -26,5 +125,11 @@
   "routing": {
     "path": "/home"
   },
-  "unused": []
+  "unused": [
+    {
+      "__internalName": "label5",
+      "name": "label5",
+      "widget": "Label"
+    }
+  ]
 }

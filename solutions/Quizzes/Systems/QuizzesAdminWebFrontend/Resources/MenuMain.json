@@ -7,6 +7,6 @@
     {
       "icon": "played-games.svg",
       "text": "[[GameLog]]",
-      "uiComponentName": "CmpListGames"
+      "uiComponentName": "CmpListQuizzesGames"
     }
 ]

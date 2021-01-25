@@ -98,14 +98,14 @@
         "children": [
           {
             "binding": "instance.question",
-            "label": "[[Question]]",
+            "label": "Question *",
             "mandatory": true,
             "name": "txtQuestion",
             "widget": "TextBox"
           },
           {
             "binding": "instance.answer1",
-            "label": "[[Answer1]]",
+            "label": "Answer #1 *",
             "mandatory": true,
             "name": "txtAnswer1",
             "size": "half",
@@ -113,7 +113,7 @@
           },
           {
             "binding": "instance.answer2",
-            "label": "[[Answer2]]",
+            "label": "Answer #2 *",
             "mandatory": true,
             "name": "txtAnswer2",
             "size": "half",
@@ -121,7 +121,7 @@
           },
           {
             "binding": "instance.answer3",
-            "label": "[[Answer3]]",
+            "label": "Answer# 3 *",
             "mandatory": true,
             "name": "txtAnswer3",
             "size": "half",
@@ -129,7 +129,7 @@
           },
           {
             "binding": "instance.answer4",
-            "label": "[[Answer4]]",
+            "label": "Answer #4 *",
             "mandatory": true,
             "name": "txtAnswer4",
             "size": "half",
@@ -138,7 +138,7 @@
           {
             "binding": "instance.correctAnswer",
             "dataFormat": "key-value",
-            "label": "[[CorrectAnswer]]",
+            "label": "Correct answer *",
             "mandatory": true,
             "mode": "single",
             "name": "cboCorrectAnswer",
@@ -148,7 +148,7 @@
           {
             "binding": "instance.topicId",
             "dataFormat": "key-value",
-            "label": "[[TopicId]]",
+            "label": "Topic *",
             "mandatory": true,
             "mode": "single",
             "name": "cboTopicId",

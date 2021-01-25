@@ -151,66 +151,101 @@
   "root": {
     "children": [
       {
-        "columns": [
+        "children": [
           {
             "align": "left",
-            "bindText": "gameId",
-            "format": "Number",
-            "header": "[[GameId]]",
-            "size": 1
+            "color": "default",
+            "cssClass": "blz-padding-left-large",
+            "icon": "played-games.svg",
+            "name": "icon1",
+            "size": "x-large",
+            "widget": "Icon"
           },
           {
             "align": "left",
-            "bindText": "playerName",
-            "header": "[[PlayerName]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "startTime",
-            "format": "DateTime",
-            "header": "[[StartTime]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "endTime",
-            "format": "DateTime",
-            "header": "[[EndTime]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "score",
-            "format": "Number",
-            "header": "[[Score]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "topic.name",
-            "header": "[[TopicName]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "header": "[[ElapsedTime]]",
-            "key": "elapsed"
+            "bold": true,
+            "color": "default",
+            "cssClass": "blz-padding-left-large",
+            "dock": "previous",
+            "name": "label1",
+            "size": "large",
+            "text": "Quizzes Games Played",
+            "widget": "Label"
           }
         ],
-        "name": "gridGamesPlayed",
-        "noResultsMessage": "No games played",
-        "pageSize": 10,
-        "title": "Games played",
-        "typeName": "QuizzesMicroservice.Game",
-        "widget": "Grid",
-        "withFiltering": true,
-        "withPaging": true
+        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
+        "layout": "container"
+      },
+      {
+        "children": [
+          {
+            "columns": [
+              {
+                "align": "left",
+                "bindText": "gameId",
+                "format": "Number",
+                "header": "[[GameId]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "playerName",
+                "header": "[[PlayerName]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "startTime",
+                "format": "DateTime",
+                "header": "[[StartTime]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "endTime",
+                "format": "DateTime",
+                "header": "[[EndTime]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "score",
+                "format": "Number",
+                "header": "[[Score]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "topic.name",
+                "header": "[[TopicName]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "header": "[[ElapsedTime]]",
+                "key": "elapsed"
+              }
+            ],
+            "cssClass": "blz-padding-top-large",
+            "name": "gridGamesPlayed",
+            "noResultsMessage": "No games played",
+            "pageSize": 10,
+            "typeName": "QuizzesMicroservice.Game",
+            "widget": "Grid",
+            "withFiltering": true,
+            "withPaging": true
+          }
+        ],
+        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
+        "layout": "container"
       }
     ],
-    "cssClass": "blz-area-default",
-    "layout": "container"
+    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-area-default",
+    "layout": "container",
+    "verticalSeparation": "large"
   },
-  "routing": null,
+  "routing": {
+    "path": "/quizzes-games"
+  },
   "unused": []
 }

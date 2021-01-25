@@ -243,24 +243,25 @@
                 "widget": "HtmlRenderer"
               },
               {
+                "alignItems": "center",
                 "children": [
                   {
-                    "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-border-top blz-cast-shadow blz-area-default",
+                    "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-cast-shadow blz-area-default",
                     "dataFormat": "key-value",
                     "display": "normal",
                     "mandatory": true,
                     "mode": "single",
                     "name": "optiongroupAnswers",
-                    "size": "12/12",
                     "widget": "OptionGroup"
                   }
                 ],
-                "cssClass": "blz-padding-top-large blz-padding-bottom-large",
+                "cssClass": "blz-padding-top-large blz-padding-bottom-large blz-border-top",
                 "layout": "container"
               }
             ],
             "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
-            "layout": "container"
+            "layout": "container",
+            "verticalSeparation": "large"
           },
           {
             "align": "center",

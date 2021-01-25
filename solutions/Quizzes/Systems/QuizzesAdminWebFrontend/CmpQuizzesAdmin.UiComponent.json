@@ -286,90 +286,124 @@
   "root": {
     "children": [
       {
-        "actions": [
+        "children": [
           {
-            "icon": "add.svg",
-            "key": "add",
-            "text": "[[Add]]"
+            "align": "left",
+            "color": "default",
+            "cssClass": "blz-padding-left-large",
+            "icon": "quiz-edit.svg",
+            "name": "icon1",
+            "size": "x-large",
+            "widget": "Icon"
+          },
+          {
+            "align": "left",
+            "bold": true,
+            "color": "default",
+            "cssClass": "blz-padding-left-large",
+            "dock": "previous",
+            "name": "label1",
+            "size": "large",
+            "text": "Quizzes administrator",
+            "widget": "Label"
           }
         ],
-        "columns": [
+        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
+        "layout": "container"
+      },
+      {
+        "children": [
           {
-            "align": "left",
-            "bindText": "quizId",
-            "format": "Number",
-            "header": "[[QuizId]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "question",
-            "header": "[[Question]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "answer1",
-            "header": "[[Answer1]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "answer2",
-            "header": "[[Answer2]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "answer3",
-            "header": "[[Answer3]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "answer4",
-            "header": "[[Answer4]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "correctAnswer",
-            "format": "Number",
-            "header": "[[CorrectAnswer]]",
-            "size": 1
-          },
-          {
-            "align": "left",
-            "bindText": "topic.name",
-            "header": "[[TopicName]]",
-            "size": 1
+            "actions": [
+              {
+                "icon": "add.svg",
+                "key": "add",
+                "text": "[[AddQuiz]]"
+              }
+            ],
+            "columns": [
+              {
+                "align": "left",
+                "bindText": "quizId",
+                "format": "Number",
+                "header": "[[QuizId]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "question",
+                "header": "[[Question]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "answer1",
+                "header": "[[Answer1]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "answer2",
+                "header": "[[Answer2]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "answer3",
+                "header": "[[Answer3]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "answer4",
+                "header": "[[Answer4]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "correctAnswer",
+                "format": "Number",
+                "header": "[[CorrectAnswer]]",
+                "size": 1
+              },
+              {
+                "align": "left",
+                "bindText": "topic.name",
+                "header": "[[TopicName]]",
+                "size": 1
+              }
+            ],
+            "disableSelection": true,
+            "name": "gridQuizzes",
+            "pageSize": 10,
+            "recordActions": [
+              {
+                "icon": "edit.svg",
+                "key": "edit",
+                "text": "[[Edit]]"
+              },
+              {
+                "icon": "remove.svg",
+                "key": "remove",
+                "text": "[[Remove]]"
+              }
+            ],
+            "typeName": "QuizzesMicroservice.Quiz",
+            "widget": "Grid",
+            "withFiltering": true,
+            "withPaging": true
           }
         ],
-        "disableSelection": true,
-        "name": "gridQuizzes",
-        "pageSize": 10,
-        "recordActions": [
-          {
-            "icon": "edit.svg",
-            "key": "edit",
-            "text": "[[Edit]]"
-          },
-          {
-            "icon": "remove.svg",
-            "key": "remove",
-            "text": "[[Remove]]"
-          }
-        ],
-        "title": "[[QuizzList]]",
-        "typeName": "QuizzesMicroservice.Quiz",
-        "widget": "Grid",
-        "withFiltering": true,
-        "withPaging": true
+        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
+        "layout": "container"
       }
     ],
-    "cssClass": "blz-area-default",
-    "layout": "container"
+    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-area-default",
+    "layout": "container",
+    "verticalSeparation": "large"
   },
-  "routing": null,
+  "routing": {
+    "path": "/quiz-admin"
+  },
   "unused": []
 }

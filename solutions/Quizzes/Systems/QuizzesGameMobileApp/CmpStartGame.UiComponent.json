@@ -125,13 +125,13 @@
   "root": {
     "children": [
       {
-        "label": "NAME",
+        "label": "NAME *",
         "name": "textboxName",
         "widget": "TextBox"
       },
       {
         "dataFormat": "key-value",
-        "label": "TOPIC",
+        "label": "TOPIC *",
         "mode": "single",
         "name": "comboboxTopic",
         "widget": "ComboBox"
