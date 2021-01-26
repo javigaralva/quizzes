@@ -232,88 +232,36 @@
     "alignItems": "center",
     "children": [
       {
-        "children": [
-          {
-            "alignItems": "center",
-            "children": [
-              {
-                "cssClass": "blz-padding-right-large blz-padding-left-large blz-area-default",
-                "htmlTemplate": "<center>\n  <h4> Question {{currentRound}} / {{totalRounds}} </h4>\n  <h3> {{question}} </h3>\n</center>",
-                "name": "htmlrendererQuestion",
-                "widget": "HtmlRenderer"
-              },
-              {
-                "alignItems": "center",
-                "children": [
-                  {
-                    "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-small blz-cast-shadow blz-area-default",
-                    "dataFormat": "key-value",
-                    "display": "normal",
-                    "mandatory": true,
-                    "mode": "single",
-                    "name": "optiongroupAnswers",
-                    "widget": "OptionGroup"
-                  }
-                ],
-                "cssClass": "blz-padding-top-large blz-padding-bottom-large blz-border-top",
-                "layout": "container"
-              }
-            ],
-            "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
-            "layout": "container",
-            "verticalSeparation": "large"
-          },
-          {
-            "align": "center",
-            "color": "primary",
-            "cssClass": "blz-padding-top-large",
-            "name": "buttonSendAnswer",
-            "size": "large",
-            "text": "NEXT",
-            "widget": "Button"
-          }
-        ],
-        "layout": "container",
-        "name": "quizContainer"
+        "cssClass": "blz-padding-right-large blz-padding-left-large blz-area-default",
+        "htmlTemplate": "<center>\n  <h4> Question {{currentRound}} / {{totalRounds}} </h4>\n  <h3> {{question}} </h3>\n</center>",
+        "name": "htmlrendererQuestion",
+        "widget": "HtmlRenderer"
+      },
+      {
+        "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-large blz-border-top blz-border-bottom blz-area-default",
+        "dataFormat": "key-value",
+        "display": "normal",
+        "mandatory": true,
+        "mode": "single",
+        "name": "optiongroupAnswers",
+        "widget": "OptionGroup"
+      },
+      {
+        "align": "center",
+        "color": "primary",
+        "cssClass": "blz-padding-top-large",
+        "name": "buttonSendAnswer",
+        "size": "large",
+        "text": "NEXT",
+        "widget": "Button"
       }
     ],
     "cssClass": "blz-padding-top-large blz-area-default",
-    "layout": "container"
+    "layout": "container",
+    "verticalSeparation": "large"
   },
   "routing": {
     "path": "/round-game"
   },
-  "unused": [
-    {
-      "__internalName": "htmlrendererCorrect",
-      "htmlTemplate": "<svg class=\"checkmark\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 52 52\">\n  <circle class=\"checkmark__circle\" cx=\"26\" cy=\"26\" r=\"25\" fill=\"none\"/>\n  <path class=\"checkmark__check\" fill=\"none\" d=\"M14.1 27.2l7.1 7.2 16.7-16.8\"/>\n</svg>",
-      "name": "htmlrendererCorrect",
-      "widget": "HtmlRenderer"
-    },
-    {
-      "__internalName": "iconIncorrect",
-      "align": "left",
-      "color": "error",
-      "icon": "remove.svg",
-      "name": "iconIncorrect",
-      "size": "xx-large",
-      "widget": "Icon"
-    },
-    {
-      "__internalName": "htmlrendererCorrectAnswer",
-      "cssClass": "blz-padding-right-large blz-padding-left-large",
-      "htmlTemplate": "<center>\n\t<h4>The correct answer was:</h2>\n\t<h3>{{correctAnswer}}</h3>\n</center>",
-      "name": "htmlrendererCorrectAnswer",
-      "widget": "HtmlRenderer"
-    },
-    {
-      "__internalName": "iconCorrect",
-      "align": "left",
-      "color": "success",
-      "icon": "correct.svg",
-      "name": "iconCorrect",
-      "size": "xx-large",
-      "widget": "Icon"
-    }
-  ]
+  "unused": []
 }
