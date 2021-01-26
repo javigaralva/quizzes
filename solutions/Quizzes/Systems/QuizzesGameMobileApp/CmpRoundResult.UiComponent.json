@@ -81,62 +81,54 @@
         "alignItems": "center",
         "children": [
           {
-            "alignItems": "center",
-            "children": [
-              {
-                "align": "left",
-                "color": "success",
-                "icon": "correct.svg",
-                "name": "iconCorrect",
-                "size": "xx-large",
-                "widget": "Icon"
-              },
-              {
-                "align": "left",
-                "bold": true,
-                "color": "success",
-                "name": "labelCorrect",
-                "size": "x-large",
-                "text": "Correct!",
-                "widget": "Label"
-              }
-            ],
-            "layout": "container",
-            "name": "correctContainer"
+            "align": "left",
+            "color": "success",
+            "icon": "correct.svg",
+            "name": "iconCorrect",
+            "size": "xx-large",
+            "widget": "Icon"
           },
           {
-            "alignItems": "center",
-            "children": [
-              {
-                "align": "left",
-                "color": "error",
-                "icon": "remove.svg",
-                "name": "iconIncorrect",
-                "size": "xx-large",
-                "widget": "Icon"
-              },
-              {
-                "bold": true,
-                "color": "error",
-                "name": "labelIncorrect",
-                "size": "x-large",
-                "text": "Incorrect!",
-                "widget": "Label"
-              },
-              {
-                "cssClass": "blz-padding-right-large blz-padding-left-large",
-                "htmlTemplate": "<center>\n\t<h4>The correct answer was:</h2>\n\t<h3>{{correctAnswer}}</h3>\n</center>",
-                "name": "htmlrendererCorrectAnswer",
-                "widget": "HtmlRenderer"
-              }
-            ],
-            "layout": "container",
-            "name": "incorrectContainer"
+            "align": "left",
+            "bold": true,
+            "color": "success",
+            "name": "labelCorrect",
+            "size": "x-large",
+            "text": "Correct!",
+            "widget": "Label"
           }
         ],
-        "cssClass": "blz-area-default",
         "layout": "container",
-        "name": "responseQuizContainer"
+        "name": "correctContainer"
+      },
+      {
+        "alignItems": "center",
+        "children": [
+          {
+            "align": "left",
+            "color": "error",
+            "icon": "remove.svg",
+            "name": "iconIncorrect",
+            "size": "xx-large",
+            "widget": "Icon"
+          },
+          {
+            "bold": true,
+            "color": "error",
+            "name": "labelIncorrect",
+            "size": "x-large",
+            "text": "Incorrect!",
+            "widget": "Label"
+          },
+          {
+            "cssClass": "blz-padding-right-large blz-padding-left-large",
+            "htmlTemplate": "<center>\n\t<h4>The correct answer was:</h2>\n\t<h3>{{correctAnswer}}</h3>\n</center>",
+            "name": "htmlrendererCorrectAnswer",
+            "widget": "HtmlRenderer"
+          }
+        ],
+        "layout": "container",
+        "name": "incorrectContainer"
       }
     ],
     "cssClass": "blz-padding-top-large blz-area-default",

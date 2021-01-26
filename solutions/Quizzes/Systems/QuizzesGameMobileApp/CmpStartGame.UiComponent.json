@@ -123,8 +123,10 @@
     }
   ],
   "root": {
+    "alignItems": "center",
     "children": [
       {
+        "cssClass": "blz-padding-top-large",
         "label": "NAME *",
         "name": "textboxName",
         "widget": "TextBox"
@@ -137,7 +139,7 @@
         "widget": "ComboBox"
       },
       {
-        "align": "center",
+        "align": "left",
         "color": "success",
         "name": "buttonStartGame",
         "size": "large",
@@ -145,17 +147,11 @@
         "widget": "Button"
       }
     ],
-    "cssClass": "blz-area-default",
+    "cssClass": "blz-padding-top-large blz-area-default",
     "layout": "container"
   },
   "routing": {
     "path": "/start-game"
   },
-  "unused": [
-    {
-      "__internalName": "htmlrenderer1",
-      "name": "htmlrenderer1",
-      "widget": "HtmlRenderer"
-    }
-  ]
+  "unused": []
 }

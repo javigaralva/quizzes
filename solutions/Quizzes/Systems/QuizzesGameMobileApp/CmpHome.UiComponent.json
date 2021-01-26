@@ -56,12 +56,5 @@
   "routing": {
     "path": "/home"
   },
-  "unused": [
-    {
-      "__internalName": "htmlrenderer1",
-      "htmlTemplate": "<h2>Welcome to Quizzes Game!</h2>",
-      "name": "htmlrenderer1",
-      "widget": "HtmlRenderer"
-    }
-  ]
+  "unused": []
 }
