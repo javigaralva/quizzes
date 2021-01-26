@@ -29,6 +29,21 @@
         "variables": []
       },
       "name": "iconEditQuizzes_click"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Navigate",
+            "expressionStartModel": "null",
+            "uiComponentName": "CmpRanking"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "iconRanking_click"
     }
   ],
   "model": [],
@@ -78,7 +93,7 @@
               },
               {
                 "color": "default",
-                "name": "label3",
+                "name": "labelQuizzesAdmin",
                 "text": "Add, edit and remove quizzes",
                 "widget": "Label"
               }
@@ -101,8 +116,31 @@
               },
               {
                 "color": "default",
-                "name": "label4",
+                "name": "labelGamesQuizzes",
                 "text": "List quizzes games",
+                "widget": "Label"
+              }
+            ],
+            "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
+            "layout": "container",
+            "size": "5/12"
+          },
+          {
+            "alignItems": "center",
+            "children": [
+              {
+                "align": "left",
+                "clickable": true,
+                "color": "secondary",
+                "icon": "ranking.svg",
+                "name": "iconRanking",
+                "size": "xx-large",
+                "widget": "Icon"
+              },
+              {
+                "color": "default",
+                "name": "labelRanking",
+                "text": "Ranking",
                 "widget": "Label"
               }
             ],
@@ -114,7 +152,8 @@
         "cssClass": "blz-padding-top-large",
         "horizontalSeparation": "large",
         "layout": "container",
-        "size": "7/12"
+        "size": "7/12",
+        "verticalSeparation": "large"
       }
     ],
     "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-area-default",
@@ -125,11 +164,5 @@
   "routing": {
     "path": "/home"
   },
-  "unused": [
-    {
-      "__internalName": "label5",
-      "name": "label5",
-      "widget": "Label"
-    }
-  ]
+  "unused": []
 }

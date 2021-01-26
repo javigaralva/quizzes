@@ -290,7 +290,7 @@
           {
             "align": "left",
             "color": "default",
-            "cssClass": "blz-padding-left-large",
+            "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-large",
             "icon": "quiz-edit.svg",
             "name": "icon1",
             "size": "x-large",
@@ -403,7 +403,7 @@
     "verticalSeparation": "large"
   },
   "routing": {
-    "path": "/quiz-admin"
+    "path": "/quizzes-admin"
   },
   "unused": []
 }

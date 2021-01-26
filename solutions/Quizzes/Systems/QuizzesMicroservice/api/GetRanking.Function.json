@@ -1,0 +1,101 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "topicId",
+        "type": "integer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Set",
+        "expression": "[]",
+        "variableName": "ranking"
+      },
+      {
+        "children": [
+          {
+            "command": "Set",
+            "expression": "ListTopics( null )",
+            "variableName": "topics"
+          }
+        ],
+        "command": "If",
+        "expression": "IsNull( topicId )"
+      },
+      {
+        "children": [
+          {
+            "command": "Set",
+            "expression": "[ GetTopic( topicId ) ]",
+            "variableName": "topics"
+          }
+        ],
+        "command": "Else"
+      },
+      {
+        "children": [
+          {
+            "command": "Set",
+            "expression": "GetBestGameByTopicId( topic.topicId )",
+            "variableName": "bestGame"
+          },
+          {
+            "children": [
+              {
+                "command": "Push",
+                "expressionItem": "bestGame",
+                "variableNameList": "ranking"
+              }
+            ],
+            "command": "If",
+            "expression": "IsNotNull( bestGame )"
+          }
+        ],
+        "command": "ForEach",
+        "expressionList": "topics",
+        "variableNameItem": "topic"
+      },
+      {
+        "command": "Return",
+        "expression": "ranking"
+      }
+    ],
+    "typeReturn": "list( Game )",
+    "variables": [
+      {
+        "name": "topics",
+        "type": "list( Topic )"
+      },
+      {
+        "name": "topic",
+        "type": "Topic"
+      },
+      {
+        "name": "bestGameInTopic",
+        "type": "Game"
+      },
+      {
+        "name": "ranking",
+        "type": "list( Game )"
+      },
+      {
+        "name": "bestGame",
+        "type": "Game"
+      }
+    ]
+  },
+  "routing": {
+    "method": "GET",
+    "parameters": [
+      {
+        "bind": "topicId",
+        "in": "Query",
+        "name": "topicId",
+        "remarks": "Filter ranking by TopicId"
+      }
+    ],
+    "path": "/ranking",
+    "remarks": "Get the ranking"
+  }
+}

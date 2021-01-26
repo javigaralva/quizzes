@@ -1,0 +1,53 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "startTime",
+        "type": "datetime"
+      },
+      {
+        "name": "endTime",
+        "type": "datetime"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Set",
+        "expression": "\"-\"",
+        "variableName": "text"
+      },
+      {
+        "children": [
+          {
+            "command": "Set",
+            "expression": "Floor( DatetimeDiff( endTime, startTime ) / 1000 )",
+            "variableName": "elapsedTimeInSeconds"
+          },
+          {
+            "command": "Set",
+            "expression": "Concat( ConvertToString( elapsedTimeInSeconds ), \" s\" )",
+            "variableName": "text"
+          }
+        ],
+        "command": "If",
+        "expression": "IsNotNull( endTime )"
+      },
+      {
+        "command": "Return",
+        "expression": "text"
+      }
+    ],
+    "typeReturn": "string",
+    "variables": [
+      {
+        "name": "text",
+        "type": "string"
+      },
+      {
+        "name": "elapsedTimeInSeconds",
+        "type": "integer"
+      }
+    ]
+  },
+  "routing": null
+}

@@ -1,0 +1,66 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "args",
+            "type": "ArgsLoadRecords"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Return",
+            "expression": "QuizzesMicroservice.GetRanking( null )"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "repeaterRanking_loadRecords"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Refresh",
+            "widgetName": "repeaterRanking"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "main_init"
+    }
+  ],
+  "model": [],
+  "root": {
+    "children": [
+      {
+        "cardSize": "quarter",
+        "horizontalSeparation": "large",
+        "name": "repeaterRanking",
+        "typeName": "QuizzesMicroservice.Game",
+        "uiComponentBinding": {
+          "instance": "{record}"
+        },
+        "uiComponentName": "CmpGame",
+        "verticalSeparation": "large",
+        "widget": "Repeater"
+      }
+    ],
+    "cssClass": "blz-area-default",
+    "layout": "container"
+  },
+  "routing": {
+    "path": "/ranking"
+  },
+  "unused": [
+    {
+      "__internalName": "button1",
+      "name": "button1",
+      "widget": "Button"
+    }
+  ]
+}

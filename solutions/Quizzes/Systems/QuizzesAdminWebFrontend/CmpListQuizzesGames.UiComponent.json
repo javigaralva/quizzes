@@ -103,29 +103,8 @@
             "variableName": "record"
           },
           {
-            "command": "Set",
-            "expression": "\"-\"",
-            "variableName": "text"
-          },
-          {
-            "children": [
-              {
-                "command": "Set",
-                "expression": "Floor( DatetimeDiff( record.endTime, record.startTime ) / 1000 )",
-                "variableName": "elapsedInSeconds"
-              },
-              {
-                "command": "Set",
-                "expression": "Concat( ConvertToString( elapsedInSeconds ), \" s\" )",
-                "variableName": "text"
-              }
-            ],
-            "command": "If",
-            "expression": "IsNotNull( record.endTime )"
-          },
-          {
             "command": "Return",
-            "expression": "{text: text}"
+            "expression": "{ text: GetFormatedElapsedTime( record.startTime, record.endTime ) }"
           }
         ],
         "typeReturn": "obj(icon:string, text:string)",
@@ -133,14 +112,6 @@
           {
             "name": "record",
             "type": "QuizzesMicroservice.Game"
-          },
-          {
-            "name": "text",
-            "type": "string"
-          },
-          {
-            "name": "elapsedInSeconds",
-            "type": "integer"
           }
         ]
       },
@@ -155,7 +126,7 @@
           {
             "align": "left",
             "color": "default",
-            "cssClass": "blz-padding-left-large",
+            "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-large",
             "icon": "played-games.svg",
             "name": "icon1",
             "size": "x-large",

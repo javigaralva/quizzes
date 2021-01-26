@@ -1,0 +1,48 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "topicId",
+        "type": "integer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Set",
+        "expression": "RdsSelectOne(QuizzesDatabase.Game, RdsMax(score), topicId == ^topicId )",
+        "variableName": "maxScore"
+      },
+      {
+        "children": [
+          {
+            "command": "Return",
+            "expression": "null"
+          }
+        ],
+        "command": "If",
+        "expression": "IsNull( maxScore )"
+      },
+      {
+        "command": "Set",
+        "expression": "First( Transform(\n\tTrfGameWithTopic,\n\tRdsSelectReader( \n\t    QuizzesDatabase.Game, \n\t    [ \n\t        score >= ^maxScore, \n\t        topicId == ^topicId\n\t    ],\n\t    RdsAsc( DatetimeDiff( endTime, startTime ) ) \n\t)\n) )",
+        "variableName": "gameWithMaxScore"
+      },
+      {
+        "command": "Return",
+        "expression": "gameWithMaxScore"
+      }
+    ],
+    "typeReturn": "Game",
+    "variables": [
+      {
+        "name": "maxScore",
+        "type": "integer"
+      },
+      {
+        "name": "gameWithMaxScore",
+        "type": "Game"
+      }
+    ]
+  },
+  "routing": null
+}

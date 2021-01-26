@@ -1,12 +1,17 @@
 [
     {
       "icon": "quiz-edit.svg",
-      "text": "[[QuizEditor]]",
-      "uiComponentName": "CmpQuizAdmin"
+      "text": "Administration quizzes",
+      "uiComponentName": "CmpQuizzesAdmin"
     },
     {
       "icon": "played-games.svg",
-      "text": "[[GameLog]]",
+      "text": "Quizzes Games Played",
       "uiComponentName": "CmpListQuizzesGames"
+    },
+    {
+      "icon": "ranking.svg",
+      "text": "Ranking",
+      "uiComponentName": "CmpRanking"
     }
 ]
