@@ -121,7 +121,7 @@
             "children": [
               {
                 "command": "Return",
-                "expression": "\"You could do better!\""
+                "expression": "\"Keep trying!\""
               }
             ],
             "command": "ElseIf",
