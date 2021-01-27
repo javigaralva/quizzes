@@ -1,0 +1,24 @@
+{
+  "algorithm": {
+    "parameters": [],
+    "statements": [
+      {
+        "command": "ReadConfigParameter",
+        "configParameterName": "MaxRankingItems",
+        "variableName": "maxRankingItems"
+      },
+      {
+        "command": "Return",
+        "expression": "maxRankingItems"
+      }
+    ],
+    "typeReturn": "integer",
+    "variables": [
+      {
+        "name": "maxRankingItems",
+        "type": "integer"
+      }
+    ]
+  },
+  "routing": null
+}

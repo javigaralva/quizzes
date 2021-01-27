@@ -323,7 +323,7 @@
             ],
             "columns": [
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "quizId",
                 "format": "Number",
                 "header": "[[QuizId]]",
@@ -333,7 +333,7 @@
                 "align": "left",
                 "bindText": "question",
                 "header": "[[Question]]",
-                "size": 1
+                "size": 4
               },
               {
                 "align": "left",
@@ -360,19 +360,20 @@
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "correctAnswer",
                 "format": "Number",
                 "header": "[[CorrectAnswer]]",
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "topic.name",
                 "header": "[[TopicName]]",
                 "size": 1
               }
             ],
+            "cssClass": "blz-padding-right-large blz-padding-left-large",
             "disableSelection": true,
             "name": "gridQuizzes",
             "pageSize": 10,
@@ -394,7 +395,7 @@
             "withPaging": true
           }
         ],
-        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
+        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
         "layout": "container"
       }
     ],

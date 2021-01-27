@@ -6,6 +6,20 @@
       "buildPort": 8080
     },
     {
+      "systemName": "QuizzesGameMobileApp",
+      "action": "build",
+      "parameters": [
+        {
+          "configParameterName": "MsWaitWhenCorrectAnswer",
+          "value": 1
+        },
+        {
+          "configParameterName": "MsWaitWhenIncorrectAnswer",
+          "value": 1
+        }
+      ]
+    },
+    {
       "systemName": "QuizzesMicroservice",
       "action": "build",
       "buildPort": 8888,
@@ -15,8 +29,12 @@
           "value": 5
         },
         {
+          "configParameterName": "MaxRankingItems",
+          "value": 3
+        },
+        {
           "configParameterName": "TotalRoundsPerGame",
-          "value": 5
+          "value": 1
         }
       ]
     },

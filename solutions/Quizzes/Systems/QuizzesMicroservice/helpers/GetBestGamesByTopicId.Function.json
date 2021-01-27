@@ -1,0 +1,23 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "topicId",
+        "type": "integer"
+      },
+      {
+        "name": "amount",
+        "type": "integer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Return",
+        "expression": "Transform(\n\tTrfGameWithTopic,\n\tRdsSelectReader( \n\t    QuizzesDatabase.Game, \n\t    topicId == ^topicId,\n\t    [ RdsDesc( score ), RdsAsc( DatetimeDiff( endTime, startTime ) ) ],\n        0, \n        amount\n\t)\n)"
+      }
+    ],
+    "typeReturn": "list( Game )",
+    "variables": []
+  },
+  "routing": null
+}

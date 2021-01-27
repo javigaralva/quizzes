@@ -1,11 +1,6 @@
 {
   "algorithm": {
-    "parameters": [
-      {
-        "name": "topicId",
-        "type": "integer"
-      }
-    ],
+    "parameters": [],
     "statements": [
       {
         "command": "Set",
@@ -13,43 +8,27 @@
         "variableName": "ranking"
       },
       {
-        "children": [
-          {
-            "command": "Set",
-            "expression": "ListTopics( null )",
-            "variableName": "topics"
-          }
-        ],
-        "command": "If",
-        "expression": "IsNull( topicId )"
+        "command": "Set",
+        "expression": "ListTopics( null )",
+        "variableName": "topics"
       },
       {
         "children": [
           {
             "command": "Set",
-            "expression": "[ GetTopic( topicId ) ]",
-            "variableName": "topics"
-          }
-        ],
-        "command": "Else"
-      },
-      {
-        "children": [
-          {
-            "command": "Set",
-            "expression": "GetBestGameByTopicId( topic.topicId )",
-            "variableName": "bestGame"
+            "expression": "GetBestGamesByTopicId( topic.topicId, GetMaxRankingItems() )",
+            "variableName": "bestGames"
           },
           {
             "children": [
               {
                 "command": "Push",
-                "expressionItem": "bestGame",
+                "expressionItem": "bestGames",
                 "variableNameList": "ranking"
               }
             ],
             "command": "If",
-            "expression": "IsNotNull( bestGame )"
+            "expression": "IsNotNull( bestGames ) && Count( bestGames ) > 0"
           }
         ],
         "command": "ForEach",
@@ -61,7 +40,7 @@
         "expression": "ranking"
       }
     ],
-    "typeReturn": "list( Game )",
+    "typeReturn": "list( list( Game ) )",
     "variables": [
       {
         "name": "topics",
@@ -77,24 +56,17 @@
       },
       {
         "name": "ranking",
-        "type": "list( Game )"
+        "type": "list( list( Game ) )"
       },
       {
-        "name": "bestGame",
-        "type": "Game"
+        "name": "bestGames",
+        "type": "list( Game )"
       }
     ]
   },
   "routing": {
     "method": "GET",
-    "parameters": [
-      {
-        "bind": "topicId",
-        "in": "Query",
-        "name": "topicId",
-        "remarks": "Filter ranking by TopicId"
-      }
-    ],
+    "parameters": [],
     "path": "/ranking",
     "remarks": "Get the ranking"
   }

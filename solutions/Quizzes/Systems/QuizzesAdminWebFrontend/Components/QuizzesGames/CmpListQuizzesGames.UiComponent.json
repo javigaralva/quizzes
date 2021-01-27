@@ -152,52 +152,52 @@
           {
             "columns": [
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "gameId",
                 "format": "Number",
                 "header": "[[GameId]]",
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "playerName",
                 "header": "[[PlayerName]]",
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "startTime",
                 "format": "DateTime",
                 "header": "[[StartTime]]",
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "endTime",
                 "format": "DateTime",
                 "header": "[[EndTime]]",
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "score",
                 "format": "Number",
                 "header": "[[Score]]",
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "bindText": "topic.name",
                 "header": "[[TopicName]]",
                 "size": 1
               },
               {
-                "align": "left",
+                "align": "center",
                 "header": "[[ElapsedTime]]",
                 "key": "elapsed"
               }
             ],
-            "cssClass": "blz-padding-top-large",
+            "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large",
             "name": "gridGamesPlayed",
             "noResultsMessage": "No games played",
             "pageSize": 10,
@@ -207,7 +207,7 @@
             "withPaging": true
           }
         ],
-        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
+        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
         "layout": "container"
       }
     ],

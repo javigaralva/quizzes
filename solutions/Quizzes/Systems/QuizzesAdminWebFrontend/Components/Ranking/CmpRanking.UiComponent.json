@@ -11,7 +11,7 @@
         "statements": [
           {
             "command": "Return",
-            "expression": "QuizzesMicroservice.GetRanking( null )"
+            "expression": "QuizzesMicroservice.GetRanking()"
           }
         ],
         "typeReturn": "any",
@@ -38,20 +38,49 @@
   "root": {
     "children": [
       {
-        "cardSize": "quarter",
+        "children": [
+          {
+            "align": "left",
+            "color": "default",
+            "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large",
+            "icon": "ranking.svg",
+            "name": "icon1",
+            "size": "x-large",
+            "widget": "Icon"
+          },
+          {
+            "align": "left",
+            "bold": true,
+            "color": "default",
+            "dock": "previous",
+            "name": "label1",
+            "size": "large",
+            "text": "Ranking",
+            "widget": "Label"
+          }
+        ],
+        "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius",
+        "layout": "container"
+      },
+      {
+        "cardBorder": true,
+        "cardBorderRadius": true,
+        "cardCastShadow": true,
+        "cardSize": "third",
         "horizontalSeparation": "large",
         "name": "repeaterRanking",
         "typeName": "QuizzesMicroservice.Game",
         "uiComponentBinding": {
           "instance": "{record}"
         },
-        "uiComponentName": "CmpGame",
+        "uiComponentName": "CmpRankingByTopic",
         "verticalSeparation": "large",
         "widget": "Repeater"
       }
     ],
-    "cssClass": "blz-area-default",
-    "layout": "container"
+    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-area-default",
+    "layout": "container",
+    "verticalSeparation": "large"
   },
   "routing": {
     "path": "/ranking"

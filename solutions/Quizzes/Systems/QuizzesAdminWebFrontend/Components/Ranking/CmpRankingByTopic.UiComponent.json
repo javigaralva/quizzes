@@ -1,0 +1,340 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "ReadModel",
+            "modelVariableName": "instance",
+            "variableName": "instance"
+          },
+          {
+            "command": "Set",
+            "expression": "First( instance )",
+            "variableName": "firstGame"
+          },
+          {
+            "command": "Set",
+            "expression": "firstGame.topic.name",
+            "variableName": "topicName"
+          },
+          {
+            "command": "SetValue",
+            "expression": "topicName",
+            "widgetName": "fieldTopicName"
+          },
+          {
+            "command": "Set",
+            "expression": "[]",
+            "variableName": "ranking"
+          },
+          {
+            "command": "Set",
+            "expression": "1",
+            "variableName": "position"
+          },
+          {
+            "children": [
+              {
+                "command": "Push",
+                "expressionItem": "{ position: position, game: game }",
+                "variableNameList": "ranking"
+              },
+              {
+                "command": "Set",
+                "expression": "position + 1",
+                "variableName": "position"
+              }
+            ],
+            "command": "ForEach",
+            "expressionList": "instance",
+            "variableNameItem": "game"
+          },
+          {
+            "command": "SetValue",
+            "expression": "ranking",
+            "widgetName": "gridRanking"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "instance",
+            "type": "list( QuizzesMicroservice.Game )"
+          },
+          {
+            "name": "game",
+            "type": "QuizzesMicroservice.Game"
+          },
+          {
+            "name": "topicName",
+            "type": "string"
+          },
+          {
+            "name": "firstGame",
+            "type": "QuizzesMicroservice.Game"
+          },
+          {
+            "name": "ranking",
+            "type": "list( RankingItem )"
+          },
+          {
+            "name": "position",
+            "type": "integer"
+          }
+        ]
+      },
+      "name": "main_init"
+    },
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "recordData",
+            "type": "any"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "recordData",
+            "variableName": "record"
+          },
+          {
+            "command": "Set",
+            "expression": "\"\"",
+            "variableName": "icon"
+          },
+          {
+            "command": "Set",
+            "expression": "\"\"",
+            "variableName": "text"
+          },
+          {
+            "command": "Switch",
+            "expression": "record.position"
+          },
+          {
+            "children": [
+              {
+                "command": "Set",
+                "expression": "\"ranking-1.svg\"",
+                "variableName": "icon"
+              }
+            ],
+            "command": "Case",
+            "expression": "1"
+          },
+          {
+            "children": [
+              {
+                "command": "Set",
+                "expression": "\"ranking-2.svg\"",
+                "variableName": "icon"
+              }
+            ],
+            "command": "Case",
+            "expression": "2"
+          },
+          {
+            "children": [
+              {
+                "command": "Set",
+                "expression": "\"ranking-3.svg\"",
+                "variableName": "icon"
+              }
+            ],
+            "command": "Case",
+            "expression": "3"
+          },
+          {
+            "children": [
+              {
+                "command": "Set",
+                "expression": "ConvertToString( record.position )",
+                "variableName": "text"
+              }
+            ],
+            "command": "Default"
+          },
+          {
+            "command": "Return",
+            "expression": "{ icon: icon, text: text }"
+          }
+        ],
+        "typeReturn": "obj(icon:string, text:string)",
+        "variables": [
+          {
+            "name": "record",
+            "type": "RankingItem"
+          },
+          {
+            "name": "icon",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "type": "string"
+          }
+        ]
+      },
+      "name": "gridRanking_renderColumn_position"
+    },
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "recordData",
+            "type": "any"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "recordData",
+            "variableName": "record"
+          },
+          {
+            "command": "Return",
+            "expression": "{ text: GetFormatedElapsedTime( record.game.startTime, record.game.endTime ) }"
+          }
+        ],
+        "typeReturn": "obj(icon:string, text:string)",
+        "variables": [
+          {
+            "name": "record",
+            "type": "RankingItem"
+          }
+        ]
+      },
+      "name": "gridRanking_renderColumn_time"
+    }
+  ],
+  "model": [
+    {
+      "name": "instance",
+      "required": false,
+      "type": "list( QuizzesMicroservice.Game )"
+    }
+  ],
+  "root": {
+    "alignItems": "center",
+    "children": [
+      {
+        "align": "left",
+        "binding": "instance.topic.name",
+        "bold": true,
+        "color": "default",
+        "name": "fieldTopicName",
+        "size": "large",
+        "underline": true,
+        "widget": "Field"
+      },
+      {
+        "columns": [
+          {
+            "align": "center",
+            "bindText": "position",
+            "format": "Number",
+            "header": "Position",
+            "key": "position",
+            "size": 1
+          },
+          {
+            "align": "center",
+            "bindText": "game.playerName",
+            "header": "Name",
+            "size": 1
+          },
+          {
+            "align": "center",
+            "bindText": "game.score",
+            "format": "Number",
+            "header": "Score",
+            "size": 1
+          },
+          {
+            "align": "center",
+            "header": "Time",
+            "key": "time"
+          }
+        ],
+        "name": "gridRanking",
+        "typeName": "RankingItem",
+        "widget": "Grid"
+      }
+    ],
+    "cssClass": "blz-padding-top-large blz-area-default",
+    "layout": "container",
+    "verticalSeparation": "large"
+  },
+  "routing": null,
+  "unused": [
+    {
+      "__internalName": "labelElapsed",
+      "color": "default",
+      "name": "labelElapsed",
+      "widget": "Label"
+    },
+    {
+      "__internalName": "fieldScore",
+      "binding": "instance.score",
+      "color": "default",
+      "dock": "previous",
+      "name": "fieldScore",
+      "widget": "Field"
+    },
+    {
+      "__internalName": "labelScore",
+      "bold": true,
+      "color": "default",
+      "name": "labelScore",
+      "text": "Score:",
+      "widget": "Label"
+    },
+    {
+      "__internalName": "fieldPlayerName",
+      "binding": "instance.playerName",
+      "color": "default",
+      "dock": "previous",
+      "name": "fieldPlayerName",
+      "widget": "Field"
+    },
+    {
+      "__internalName": "labelPlayerName",
+      "bold": true,
+      "color": "default",
+      "name": "labelPlayerName",
+      "text": "Player:",
+      "widget": "Label"
+    },
+    {
+      "__internalName": "fieldElapsed",
+      "color": "default",
+      "dock": "previous",
+      "name": "fieldElapsed",
+      "widget": "Field"
+    },
+    {
+      "__internalName": "label1",
+      "bold": true,
+      "color": "default",
+      "name": "label1",
+      "text": "Time:",
+      "widget": "Label"
+    },
+    {
+      "__internalName": "labelTopic",
+      "bold": true,
+      "color": "default",
+      "name": "labelTopic",
+      "text": "Topic:",
+      "widget": "Label"
+    }
+  ]
+}
