@@ -34,7 +34,7 @@
         },
         {
           "configParameterName": "TotalRoundsPerGame",
-          "value": 1
+          "value": 5
         }
       ]
     },

@@ -16,7 +16,12 @@
           },
           {
             "command": "SetValue",
-            "expression": "{ \n\tscore: gameState.score, \n    totalRounds: gameState.totalRounds,\n    playerName: gameState.playerName\n}",
+            "expression": "{ message: getFinalMessageByScore( gameState.score, gameState.totalRounds ) }",
+            "widgetName": "htmlrendererFinalMessage"
+          },
+          {
+            "command": "SetValue",
+            "expression": "{ \n\tscore: gameState.score, \n    totalRounds: gameState.totalRounds\n}",
             "widgetName": "htmlrendererScore"
           },
           {
@@ -63,6 +68,84 @@
         ]
       },
       "name": "buttonPlayAgain_click"
+    },
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "userScore",
+            "type": "integer"
+          },
+          {
+            "name": "maxScore",
+            "type": "integer"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "( userScore / maxScore ) * 100",
+            "variableName": "score"
+          },
+          {
+            "children": [
+              {
+                "command": "Return",
+                "expression": "\"Perfect! Congratulations!\""
+              }
+            ],
+            "command": "If",
+            "expression": "score >= 100"
+          },
+          {
+            "children": [
+              {
+                "command": "Return",
+                "expression": "\"Well done!\""
+              }
+            ],
+            "command": "ElseIf",
+            "expression": "score>= 75"
+          },
+          {
+            "children": [
+              {
+                "command": "Return",
+                "expression": "\"Not bad!\""
+              }
+            ],
+            "command": "ElseIf",
+            "expression": "score >= 50"
+          },
+          {
+            "children": [
+              {
+                "command": "Return",
+                "expression": "\"You could do better!\""
+              }
+            ],
+            "command": "ElseIf",
+            "expression": "score >= 25"
+          },
+          {
+            "children": [
+              {
+                "command": "Return",
+                "expression": "\"Concentrate and try again!\""
+              }
+            ],
+            "command": "Else"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "score",
+            "type": "decimal"
+          }
+        ]
+      },
+      "name": "getFinalMessageByScore"
     }
   ],
   "model": [
@@ -78,10 +161,17 @@
     }
   ],
   "root": {
+    "alignItems": "center",
     "children": [
       {
+        "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large",
+        "htmlTemplate": "<center>\n  <h2><b>{{message}}</b></h2>\n</center>",
+        "name": "htmlrendererFinalMessage",
+        "widget": "HtmlRenderer"
+      },
+      {
         "cssClass": "blz-padding-bottom-large",
-        "htmlTemplate": "<center>\n  <h2>Congratulations {{playerName}}!</h2>\n  <h3>Your score was:</h3>\n  <h1>{{score}} / {{totalRounds}}</h1>\n</center>",
+        "htmlTemplate": "<center>\n  <h3>Your score was:</h3>\n  <h1>{{score}} / {{totalRounds}}</h1>\n</center>",
         "name": "htmlrendererScore",
         "widget": "HtmlRenderer"
       },
@@ -101,5 +191,32 @@
   "routing": {
     "path": "/end-game"
   },
-  "unused": []
+  "unused": [
+    {
+      "__internalName": "htmlrendererMessage",
+      "htmlTemplate": "<center>\n<h2>Congratulations {{playerName}}!</h2>\n</center>",
+      "name": "htmlrendererMessage",
+      "widget": "HtmlRenderer"
+    },
+    {
+      "__internalName": "labelFinalMessage",
+      "align": "left",
+      "bold": true,
+      "color": "default",
+      "cssClass": "blz-padding-top-large",
+      "name": "labelFinalMessage",
+      "size": "x-large",
+      "text": "Message",
+      "widget": "Label"
+    },
+    {
+      "__internalName": "fieldFinalMessage",
+      "align": "left",
+      "bold": true,
+      "color": "default",
+      "name": "fieldFinalMessage",
+      "size": "x-large",
+      "widget": "Field"
+    }
+  ]
 }
