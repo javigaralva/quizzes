@@ -40,6 +40,12 @@
         ]
       },
       {
+        "codePath": "totalTime",
+        "outputConnections": [
+          "c8"
+        ]
+      },
+      {
         "codePath": "topic.topicId",
         "outputConnections": [
           "c6"
@@ -82,6 +88,10 @@
       {
         "codePath": "score",
         "inputConnection": "c5"
+      },
+      {
+        "codePath": "totalTime",
+        "inputConnection": "c8"
       },
       {
         "codePath": "topic.topicId",

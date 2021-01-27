@@ -201,7 +201,7 @@
           },
           {
             "command": "Return",
-            "expression": "{ text: GetFormatedElapsedTime( record.game.startTime, record.game.endTime ) }"
+            "expression": "{ text: GetFormatedElapsedTime( record.game.totalTime ) }"
           }
         ],
         "typeReturn": "obj(icon:string, text:string)",

@@ -104,7 +104,7 @@
           },
           {
             "command": "Return",
-            "expression": "{ text: GetFormatedElapsedTime( record.startTime, record.endTime ) }"
+            "expression": "{ text: GetFormatedElapsedTime( record.totalTime ) }"
           }
         ],
         "typeReturn": "obj(icon:string, text:string)",
@@ -115,7 +115,7 @@
           }
         ]
       },
-      "name": "gridGamesPlayed_renderColumn_elapsed"
+      "name": "gridGamesPlayed_renderColumn_totalTime"
     }
   ],
   "model": [],
@@ -193,8 +193,8 @@
               },
               {
                 "align": "center",
-                "header": "[[ElapsedTime]]",
-                "key": "elapsed"
+                "header": "[[TotalTime]]",
+                "key": "totalTime"
               }
             ],
             "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large",

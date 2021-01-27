@@ -20,7 +20,7 @@
         "expressionSubTitle": "null",
         "expressionTitle": "\"Quizzes Manager\"",
         "expressionToolsMenu": "null\n\n",
-        "search": "enable",
+        "search": "disable",
         "uiComponentName": "CmpHome"
       }
     ],
