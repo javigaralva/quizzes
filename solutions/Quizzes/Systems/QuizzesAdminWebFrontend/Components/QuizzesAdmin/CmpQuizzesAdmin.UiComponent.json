@@ -292,7 +292,7 @@
             "color": "default",
             "cssClass": "blz-padding-top-large blz-padding-left-large blz-padding-bottom-large",
             "icon": "quiz-edit.svg",
-            "name": "icon1",
+            "name": "iconMain",
             "size": "x-large",
             "widget": "Icon"
           },
@@ -302,9 +302,9 @@
             "color": "default",
             "cssClass": "blz-padding-left-large",
             "dock": "previous",
-            "name": "label1",
+            "name": "labelTitle",
             "size": "large",
-            "text": "Quizzes administrator",
+            "text": "Quizzes administration",
             "widget": "Label"
           }
         ],

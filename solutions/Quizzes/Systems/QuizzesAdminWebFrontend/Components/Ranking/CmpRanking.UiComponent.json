@@ -44,7 +44,7 @@
             "color": "default",
             "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large",
             "icon": "ranking.svg",
-            "name": "icon1",
+            "name": "iconMain",
             "size": "x-large",
             "widget": "Icon"
           },
@@ -53,7 +53,7 @@
             "bold": true,
             "color": "default",
             "dock": "previous",
-            "name": "label1",
+            "name": "labelTitle",
             "size": "large",
             "text": "Ranking",
             "widget": "Label"
@@ -85,11 +85,5 @@
   "routing": {
     "path": "/ranking"
   },
-  "unused": [
-    {
-      "__internalName": "button1",
-      "name": "button1",
-      "widget": "Button"
-    }
-  ]
+  "unused": []
 }

@@ -165,25 +165,5 @@
   "routing": {
     "path": "/quiz-edit"
   },
-  "unused": [
-    {
-      "__internalName": "numCorrectAnswer",
-      "binding": "instance.correctAnswer",
-      "label": "[[CorrectAnswer]]",
-      "mandatory": true,
-      "name": "numCorrectAnswer",
-      "size": "half",
-      "widget": "NumericBox"
-    },
-    {
-      "__internalName": "label1",
-      "align": "left",
-      "color": "default",
-      "dock": "next",
-      "name": "label1",
-      "size": "small",
-      "text": "[[CorrectAnwser]]",
-      "widget": "Label"
-    }
-  ]
+  "unused": []
 }

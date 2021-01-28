@@ -28,7 +28,7 @@
         "typeReturn": "any",
         "variables": []
       },
-      "name": "iconEditQuizzes_click"
+      "name": "iconQuizzesAdmin_click"
     },
     {
       "algorithm": {
@@ -44,6 +44,21 @@
         "variables": []
       },
       "name": "iconRanking_click"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Navigate",
+            "expressionStartModel": "null",
+            "uiComponentName": "CmpTopicsAdmin"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "iconTopicsAdmin_click"
     }
   ],
   "model": [],
@@ -86,8 +101,31 @@
                 "align": "left",
                 "clickable": true,
                 "color": "secondary",
+                "icon": "topic.svg",
+                "name": "iconTopicsAdmin",
+                "size": "xx-large",
+                "widget": "Icon"
+              },
+              {
+                "color": "default",
+                "name": "labelTopicsAdmin",
+                "text": "Add, edit and remove topics",
+                "widget": "Label"
+              }
+            ],
+            "cssClass": "blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
+            "layout": "container",
+            "size": "5/12"
+          },
+          {
+            "alignItems": "center",
+            "children": [
+              {
+                "align": "left",
+                "clickable": true,
+                "color": "secondary",
                 "icon": "quiz-edit.svg",
-                "name": "iconEditQuizzes",
+                "name": "iconQuizzesAdmin",
                 "size": "xx-large",
                 "widget": "Icon"
               },
