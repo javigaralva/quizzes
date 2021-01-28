@@ -18,18 +18,20 @@
       "type": "integer"
     },
     {
-      "name": "START_TIME",
       "alias": "startTime",
+      "name": "START_TIME",
       "type": "datetime"
     },
     {
-      "name": "END_TIME",
       "alias": "endTime",
+      "allowNull": true,
+      "name": "END_TIME",
       "type": "datetime"
     },
     {
-      "name": "WAS_CORRECT",
       "alias": "wasCorrect",
+      "allowNull": true,
+      "name": "WAS_CORRECT",
       "type": "boolean"
     }
   ],
@@ -42,7 +44,7 @@
           "relatedColumnName": "QUIZ_ID"
         }
       ],
-      "name": "quiz",
+      "name": "ROUND_FK1",
       "rdsTableName": "Quiz"
     },
     {
@@ -53,14 +55,14 @@
           "relatedColumnName": "GAME_ID"
         }
       ],
-      "name": "game",
+      "name": "ROUND_FK2",
       "rdsTableName": "Game"
     }
   ],
   "indexes": [],
   "isView": false,
-  "primaryKeyName": "",
-  "sequenceName": "",
+  "primaryKeyName": "ROUND_PK",
+  "sequenceName": "ROUND_SQ",
   "tableName": "ROUND",
   "uniqueKeys": []
 }

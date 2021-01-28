@@ -52,14 +52,14 @@
           "relatedColumnName": "TOPIC_ID"
         }
       ],
-      "name": "topic",
+      "name": "QUIZ_FK",
       "rdsTableName": "Topic"
     }
   ],
   "indexes": [],
   "isView": false,
-  "primaryKeyName": "quizId",
-  "sequenceName": "",
+  "primaryKeyName": "QUIZ_PK",
+  "sequenceName": "QUIZ_SQ",
   "tableName": "QUIZ",
   "uniqueKeys": []
 }

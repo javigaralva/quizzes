@@ -24,16 +24,19 @@
     },
     {
       "alias": "endTime",
+      "allowNull": true,
       "name": "END_TIME",
       "type": "datetime"
     },
     {
       "alias": "score",
+      "allowNull": false,
       "name": "SCORE",
       "type": "integer"
     },
     {
       "alias": "totalTime",
+      "allowNull": true,
       "name": "TOTAL_TIME",
       "type": "integer"
     }
@@ -47,14 +50,14 @@
           "relatedColumnName": "TOPIC_ID"
         }
       ],
-      "name": "topic",
+      "name": "GAME_FK",
       "rdsTableName": "Topic"
     }
   ],
   "indexes": [],
   "isView": false,
-  "primaryKeyName": "",
-  "sequenceName": "",
+  "primaryKeyName": "GAME_PK",
+  "sequenceName": "GAME_SQ",
   "tableName": "GAME",
   "uniqueKeys": []
 }

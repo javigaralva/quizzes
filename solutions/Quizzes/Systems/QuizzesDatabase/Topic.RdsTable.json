@@ -16,8 +16,8 @@
   "foreignKeys": [],
   "indexes": [],
   "isView": false,
-  "primaryKeyName": "topicId",
-  "sequenceName": "",
+  "primaryKeyName": "TOPIC_PK",
+  "sequenceName": "TOPIC_SQ",
   "tableName": "TOPIC",
   "uniqueKeys": []
 }
