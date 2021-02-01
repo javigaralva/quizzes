@@ -34,47 +34,53 @@
         "variableName": "quiz"
       },
       {
-        "command": "Set",
-        "expression": "params.userAnswer == quiz.correctAnswer",
-        "variableName": "wasCorrect"
-      },
-      {
-        "command": "Set",
-        "expression": "Now()",
-        "variableName": "currentRound.endTime"
-      },
-      {
-        "command": "Set",
-        "expression": "wasCorrect",
-        "variableName": "currentRound.wasCorrect"
-      },
-      {
-        "command": "Execute",
-        "expression": "UpdateRound( currentRound.roundId, currentRound )"
-      },
-      {
-        "command": "ConsoleLog",
-        "expression": "[ { currentRound: currentRound } ]"
-      },
-      {
-        "command": "Set",
-        "expression": "0",
-        "variableName": "endRoundScore"
-      },
-      {
         "children": [
           {
             "command": "Set",
-            "expression": "1",
+            "expression": "params.userAnswer == quiz.correctAnswer",
+            "variableName": "wasCorrect"
+          },
+          {
+            "command": "Set",
+            "expression": "Now()",
+            "variableName": "currentRound.endTime"
+          },
+          {
+            "command": "Set",
+            "expression": "wasCorrect",
+            "variableName": "currentRound.wasCorrect"
+          },
+          {
+            "command": "Execute",
+            "expression": "UpdateRound( currentRound.roundId, currentRound )"
+          },
+          {
+            "command": "ConsoleLog",
+            "expression": "[ { currentRound: currentRound } ]"
+          },
+          {
+            "command": "Set",
+            "expression": "0",
             "variableName": "endRoundScore"
+          },
+          {
+            "children": [
+              {
+                "command": "Set",
+                "expression": "1",
+                "variableName": "endRoundScore"
+              }
+            ],
+            "command": "If",
+            "expression": "wasCorrect"
+          },
+          {
+            "command": "Execute",
+            "expression": "UpdateEndRoundGameScore( params.gameId, endRoundScore )"
           }
         ],
         "command": "If",
-        "expression": "wasCorrect"
-      },
-      {
-        "command": "Execute",
-        "expression": "UpdateEndRoundGameScore( params.gameId, endRoundScore )"
+        "expression": "IsRoundEnded( currentRound ) == false"
       },
       {
         "command": "Set",

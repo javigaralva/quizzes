@@ -118,20 +118,20 @@
     "typeReturn": "GameState",
     "variables": [
       {
-        "name": "newRound",
-        "type": "Round"
-      },
-      {
         "name": "gameState",
         "type": "GameState"
+      },
+      {
+        "name": "hasToCreateNewRound",
+        "type": "boolean"
       },
       {
         "name": "randomQuiz",
         "type": "Quiz"
       },
       {
-        "name": "hasToCreateNewRound",
-        "type": "boolean"
+        "name": "newRound",
+        "type": "Round"
       }
     ]
   },

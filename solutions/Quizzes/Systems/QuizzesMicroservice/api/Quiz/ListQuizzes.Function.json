@@ -3,7 +3,7 @@
     "parameters": [
       {
         "name": "args",
-        "type": "ArgsListQuizes"
+        "type": "ArgsListQuizzes"
       }
     ],
     "statements": [

@@ -95,14 +95,14 @@
           },
           {
             "command": "Return",
-            "expression": "QuizzesMicroservice.ListQuizes(^args1)"
+            "expression": "QuizzesMicroservice.ListQuizzes(^args1)"
           }
         ],
         "typeReturn": "any",
         "variables": [
           {
             "name": "args1",
-            "type": "QuizzesMicroservice.ArgsListQuizes"
+            "type": "QuizzesMicroservice.ArgsListQuizzes"
           }
         ]
       },
