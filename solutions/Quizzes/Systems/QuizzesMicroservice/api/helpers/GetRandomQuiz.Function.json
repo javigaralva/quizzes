@@ -23,7 +23,7 @@
       },
       {
         "command": "Set",
-        "expression": "RdsSelect( \n\tQuizzesDatabase.Quiz, \n    quizId, \n    [ \n    \ttopicId == ^game.topicId,\n        RdsNotIn( quizId, ^quizIdsPlayed )\n    ]\n)",
+        "expression": "RdsSelect( \n\tQuizzesDatabase.Quiz, \n    quizId, \n    [ \n    \ttopicId == ^game.topicId,\n        RdsConditional( \n        \tRdsNotIn( quizId, ^quizIdsPlayed ), \n            Count( ^quizIdsPlayed ) > 0 \n        )\n    ]\n)",
         "variableName": "avilableQuizIdsToPick"
       },
       {
