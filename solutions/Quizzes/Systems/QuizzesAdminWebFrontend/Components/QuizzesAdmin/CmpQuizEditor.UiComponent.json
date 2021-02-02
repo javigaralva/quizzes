@@ -18,56 +18,6 @@
             "command": "Load",
             "expression": "[[1,1],[2,2],[3,3],[4,4]]",
             "widgetName": "cboCorrectAnswer"
-          },
-          {
-            "command": "ReadModel",
-            "modelVariableName": "instance",
-            "variableName": "instance"
-          },
-          {
-            "children": [
-              {
-                "command": "Return",
-                "expression": "null"
-              }
-            ],
-            "command": "If",
-            "expression": "IsNull( instance )"
-          },
-          {
-            "command": "SetValue",
-            "expression": "instance.question",
-            "widgetName": "txtQuestion"
-          },
-          {
-            "command": "SetValue",
-            "expression": "instance.answer1",
-            "widgetName": "txtAnswer1"
-          },
-          {
-            "command": "SetValue",
-            "expression": "instance.answer2",
-            "widgetName": "txtAnswer2"
-          },
-          {
-            "command": "SetValue",
-            "expression": "instance.answer3",
-            "widgetName": "txtAnswer3"
-          },
-          {
-            "command": "SetValue",
-            "expression": "instance.answer4",
-            "widgetName": "txtAnswer4"
-          },
-          {
-            "command": "SetValue",
-            "expression": "instance.correctAnswer",
-            "widgetName": "cboCorrectAnswer"
-          },
-          {
-            "command": "SetValue",
-            "expression": "instance.topicId",
-            "widgetName": "cboTopicId"
           }
         ],
         "typeReturn": "any",
@@ -162,8 +112,6 @@
     "cssClass": "blz-area-default",
     "layout": "container"
   },
-  "routing": {
-    "path": "/quiz-edit"
-  },
+  "routing": null,
   "unused": []
 }
