@@ -191,32 +191,5 @@
   "routing": {
     "path": "/end-game"
   },
-  "unused": [
-    {
-      "__internalName": "htmlrendererMessage",
-      "htmlTemplate": "<center>\n<h2>Congratulations {{playerName}}!</h2>\n</center>",
-      "name": "htmlrendererMessage",
-      "widget": "HtmlRenderer"
-    },
-    {
-      "__internalName": "labelFinalMessage",
-      "align": "left",
-      "bold": true,
-      "color": "default",
-      "cssClass": "blz-padding-top-large",
-      "name": "labelFinalMessage",
-      "size": "x-large",
-      "text": "Message",
-      "widget": "Label"
-    },
-    {
-      "__internalName": "fieldFinalMessage",
-      "align": "left",
-      "bold": true,
-      "color": "default",
-      "name": "fieldFinalMessage",
-      "size": "x-large",
-      "widget": "Field"
-    }
-  ]
+  "unused": []
 }
