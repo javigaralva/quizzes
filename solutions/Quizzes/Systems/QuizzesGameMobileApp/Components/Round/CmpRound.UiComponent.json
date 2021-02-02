@@ -127,18 +127,6 @@
           {
             "name": "response",
             "type": "QuizzesMicroservice.EndRoundResponse"
-          },
-          {
-            "name": "correctAnswer",
-            "type": "string"
-          },
-          {
-            "name": "answers",
-            "type": "list( tuple( integer, string ) )"
-          },
-          {
-            "name": "wasCorrect",
-            "type": "boolean"
           }
         ]
       },
