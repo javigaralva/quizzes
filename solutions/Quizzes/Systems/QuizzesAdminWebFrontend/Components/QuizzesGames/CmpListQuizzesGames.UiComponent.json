@@ -11,12 +11,12 @@
           },
           {
             "command": "Push",
-            "expressionItem": "{ key: \"f1\", label: \"[[TopicName]]\", type: \"text\" }",
+            "expressionItem": "{ key: \"fTopicName\", label: \"[[TopicName]]\", type: \"text\" }",
             "variableNameList": "gridGamesPlayedFilterConfigs"
           },
           {
             "command": "Push",
-            "expressionItem": "{ key: \"f2\", label: \"[[PlayerName]]\", type: \"text\" }",
+            "expressionItem": "{ key: \"fPlayerName\", label: \"[[PlayerName]]\", type: \"text\" }",
             "variableNameList": "gridGamesPlayedFilterConfigs"
           },
           {
@@ -65,12 +65,12 @@
           },
           {
             "command": "Set",
-            "expression": "Map(FindFirst(^args.filters, key == \"f1\"), value)",
+            "expression": "Map(FindFirst(^args.filters, key == \"fTopicName\"), value)",
             "variableName": "args1.topicName"
           },
           {
             "command": "Set",
-            "expression": "Map(FindFirst(^args.filters, key == \"f2\"), value)",
+            "expression": "Map(FindFirst(^args.filters, key == \"fPlayerName\"), value)",
             "variableName": "args1.playerName"
           },
           {
