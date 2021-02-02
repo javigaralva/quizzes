@@ -207,13 +207,7 @@
       "name": "gridTopics_handlerRecordAction_remove"
     }
   ],
-  "model": [
-    {
-      "name": "instance",
-      "required": false,
-      "type": "QuizzesMicroservice.Topic"
-    }
-  ],
+  "model": [],
   "root": {
     "children": [
       {
