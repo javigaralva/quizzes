@@ -227,7 +227,6 @@
     "children": [
       {
         "align": "left",
-        "binding": "instance.topic.name",
         "bold": true,
         "color": "default",
         "name": "fieldTopicName",
