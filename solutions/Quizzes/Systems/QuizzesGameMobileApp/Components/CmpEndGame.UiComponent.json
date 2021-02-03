@@ -5,6 +5,10 @@
         "parameters": [],
         "statements": [
           {
+            "command": "Hide",
+            "widgetName": "rootContainer"
+          },
+          {
             "command": "ReadModel",
             "modelVariableName": "gameId",
             "variableName": "gameId"
@@ -28,6 +32,10 @@
             "command": "WriteModel",
             "expression": "gameState.playerName",
             "modelVariableName": "playerName"
+          },
+          {
+            "command": "Show",
+            "widgetName": "rootContainer"
           }
         ],
         "typeReturn": "any",
@@ -51,12 +59,14 @@
           {
             "command": "ReadModel",
             "modelVariableName": "playerName",
-            "variableName": "playerName"
+            "variableName": "playerName",
+            "widgetName": "rootContainer"
           },
           {
             "command": "Navigate",
             "expressionStartModel": "{ playerName: playerName }",
-            "uiComponentName": "CmpStartGame"
+            "uiComponentName": "CmpStartGame",
+            "widgetName": "rootContainer"
           }
         ],
         "typeReturn": "any",
@@ -85,56 +95,67 @@
           {
             "command": "Set",
             "expression": "( userScore / maxScore ) * 100",
-            "variableName": "score"
+            "variableName": "score",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "Return",
-                "expression": "\"Perfect! Congratulations!\""
+                "expression": "\"Perfect! Congratulations!\"",
+                "widgetName": "rootContainer"
               }
             ],
             "command": "If",
-            "expression": "score >= 100"
+            "expression": "score >= 100",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "Return",
-                "expression": "\"Well done!\""
+                "expression": "\"Well done!\"",
+                "widgetName": "rootContainer"
               }
             ],
             "command": "ElseIf",
-            "expression": "score>= 75"
+            "expression": "score>= 75",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "Return",
-                "expression": "\"Not bad!\""
+                "expression": "\"Not bad!\"",
+                "widgetName": "rootContainer"
               }
             ],
             "command": "ElseIf",
-            "expression": "score >= 50"
+            "expression": "score >= 50",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "Return",
-                "expression": "\"Keep trying!\""
+                "expression": "\"Keep trying!\"",
+                "widgetName": "rootContainer"
               }
             ],
             "command": "ElseIf",
-            "expression": "score >= 25"
+            "expression": "score >= 25",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "Return",
-                "expression": "\"Concentrate and try again!\""
+                "expression": "\"Concentrate and try again!\"",
+                "widgetName": "rootContainer"
               }
             ],
-            "command": "Else"
+            "command": "Else",
+            "widgetName": "rootContainer"
           }
         ],
         "typeReturn": "any",
@@ -186,7 +207,8 @@
       }
     ],
     "cssClass": "blz-area-default",
-    "layout": "container"
+    "layout": "container",
+    "name": "rootContainer"
   },
   "routing": {
     "path": "/end-game"

@@ -5,6 +5,10 @@
         "parameters": [],
         "statements": [
           {
+            "command": "Hide",
+            "widgetName": "rootContainer"
+          },
+          {
             "command": "ReadModel",
             "modelVariableName": "gameId",
             "variableName": "gameId"
@@ -33,6 +37,10 @@
             "command": "Load",
             "expression": "answers",
             "widgetName": "optiongroupAnswers"
+          },
+          {
+            "command": "Show",
+            "widgetName": "rootContainer"
           }
         ],
         "typeReturn": "any",
@@ -60,7 +68,8 @@
           {
             "command": "ReadModel",
             "modelVariableName": "gameId",
-            "variableName": "gameId"
+            "variableName": "gameId",
+            "widgetName": "rootContainer"
           },
           {
             "command": "GetValue",
@@ -73,45 +82,54 @@
                 "command": "AlertMessage",
                 "expressionMessage": "\"Please select an anwser\"",
                 "expressionTitle": "\"Please select and anwser\"",
-                "severity": "error"
+                "severity": "error",
+                "widgetName": "rootContainer"
               },
               {
                 "command": "Return",
-                "expression": "null"
+                "expression": "null",
+                "widgetName": "rootContainer"
               }
             ],
             "command": "If",
-            "expression": "IsNull( userAnswer )"
+            "expression": "IsNull( userAnswer )",
+            "widgetName": "rootContainer"
           },
           {
             "command": "Set",
             "expression": "QuizzesMicroservice.EndRound( { gameId: gameId, userAnswer: userAnswer } )",
-            "variableName": "response"
+            "variableName": "response",
+            "widgetName": "rootContainer"
           },
           {
             "command": "Execute",
-            "expression": "showRoundResult( userAnswer, response )"
+            "expression": "showRoundResult( userAnswer, response )",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "Navigate",
                 "expressionStartModel": "{ gameId: gameId }",
-                "uiComponentName": "CmpEndGame"
+                "uiComponentName": "CmpEndGame",
+                "widgetName": "rootContainer"
               }
             ],
             "command": "If",
-            "expression": "response.isGameEnded"
+            "expression": "response.isGameEnded",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "Navigate",
                 "expressionStartModel": "{ gameId: gameId }",
-                "uiComponentName": "CmpRound"
+                "uiComponentName": "CmpRound",
+                "widgetName": "rootContainer"
               }
             ],
-            "command": "Else"
+            "command": "Else",
+            "widgetName": "rootContainer"
           }
         ],
         "typeReturn": "any",
@@ -148,47 +166,56 @@
           {
             "command": "Set",
             "expression": "response.correctAnwser == userAnswer",
-            "variableName": "wasCorrect"
+            "variableName": "wasCorrect",
+            "widgetName": "rootContainer"
           },
           {
             "command": "ReadModel",
             "modelVariableName": "answers",
-            "variableName": "answers"
+            "variableName": "answers",
+            "widgetName": "rootContainer"
           },
           {
             "command": "Set",
             "expression": "FindFirst( answers, First( This() ) == ^response.correctAnwser )[ 1 ]",
-            "variableName": "correctAnswer"
+            "variableName": "correctAnswer",
+            "widgetName": "rootContainer"
           },
           {
             "command": "Navigate",
             "expressionStartModel": "{ wasCorrect: wasCorrect, correctAnswer: correctAnswer }",
-            "uiComponentName": "CmpRoundResult"
+            "uiComponentName": "CmpRoundResult",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "ReadConfigParameter",
                 "configParameterName": "MsWaitWhenCorrectAnswer",
-                "variableName": "msWaitTime"
+                "variableName": "msWaitTime",
+                "widgetName": "rootContainer"
               }
             ],
             "command": "If",
-            "expression": "wasCorrect"
+            "expression": "wasCorrect",
+            "widgetName": "rootContainer"
           },
           {
             "children": [
               {
                 "command": "ReadConfigParameter",
                 "configParameterName": "MsWaitWhenIncorrectAnswer",
-                "variableName": "msWaitTime"
+                "variableName": "msWaitTime",
+                "widgetName": "rootContainer"
               }
             ],
-            "command": "Else"
+            "command": "Else",
+            "widgetName": "rootContainer"
           },
           {
             "command": "Sleep",
-            "expressionMilliseconds": "msWaitTime"
+            "expressionMilliseconds": "msWaitTime",
+            "widgetName": "rootContainer"
           }
         ],
         "typeReturn": "any",
@@ -256,6 +283,7 @@
     ],
     "cssClass": "blz-padding-top-large blz-area-default",
     "layout": "container",
+    "name": "rootContainer",
     "verticalSeparation": "large"
   },
   "routing": {
