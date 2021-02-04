@@ -69,12 +69,13 @@
             "variableName": "newRound.startTime"
           },
           {
-            "command": "Execute",
-            "expression": "CreateRound( newRound )"
+            "command": "Set",
+            "expression": "CreateRound( newRound )",
+            "variableName": "roundIdCreated"
           },
           {
             "command": "Set",
-            "expression": "randomQuiz.quizId",
+            "expression": "roundIdCreated",
             "variableName": "gameState.currentQuiz.roundId"
           },
           {
@@ -132,6 +133,10 @@
       {
         "name": "newRound",
         "type": "Round"
+      },
+      {
+        "name": "roundIdCreated",
+        "type": "integer"
       }
     ]
   },
