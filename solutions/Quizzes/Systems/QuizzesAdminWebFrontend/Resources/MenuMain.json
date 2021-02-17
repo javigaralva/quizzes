@@ -1,12 +1,12 @@
 [
     {
       "icon": "topic.svg",
-      "text": "Topics administration",
+      "text": "Topics Administration",
       "uiComponentName": "CmpTopicsAdmin"
     },
     {
       "icon": "quiz-edit.svg",
-      "text": "Quizzes administration",
+      "text": "Quizzes Administration",
       "uiComponentName": "CmpQuizzesAdmin"
     },
     {
