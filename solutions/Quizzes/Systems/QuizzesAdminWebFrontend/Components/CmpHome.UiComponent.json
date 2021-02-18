@@ -66,7 +66,7 @@
     "alignItems": "center",
     "children": [
       {
-        "align": "left",
+        "align": "center",
         "color": "default",
         "name": "labelWelcome",
         "size": "large",
@@ -74,7 +74,7 @@
         "widget": "Label"
       },
       {
-        "align": "left",
+        "align": "center",
         "color": "default",
         "icon": "quiz-color.svg",
         "name": "iconLogo",
@@ -82,7 +82,7 @@
         "widget": "Icon"
       },
       {
-        "align": "left",
+        "align": "center",
         "bold": true,
         "color": "primary",
         "cssClass": "blz-padding-bottom-large",
@@ -98,7 +98,7 @@
             "alignItems": "center",
             "children": [
               {
-                "align": "left",
+                "align": "center",
                 "clickable": true,
                 "color": "secondary",
                 "icon": "topic.svg",
@@ -107,6 +107,7 @@
                 "widget": "Icon"
               },
               {
+                "align": "center",
                 "color": "default",
                 "name": "labelTopicsAdmin",
                 "text": "Add, edit and remove topics",
@@ -121,7 +122,7 @@
             "alignItems": "center",
             "children": [
               {
-                "align": "left",
+                "align": "center",
                 "clickable": true,
                 "color": "secondary",
                 "icon": "quiz-edit.svg",
@@ -130,6 +131,7 @@
                 "widget": "Icon"
               },
               {
+                "align": "center",
                 "color": "default",
                 "name": "labelQuizzesAdmin",
                 "text": "Add, edit and remove quizzes",
@@ -144,7 +146,7 @@
             "alignItems": "center",
             "children": [
               {
-                "align": "left",
+                "align": "center",
                 "clickable": true,
                 "color": "secondary",
                 "icon": "played-games.svg",
@@ -153,6 +155,7 @@
                 "widget": "Icon"
               },
               {
+                "align": "center",
                 "color": "default",
                 "name": "labelGamesQuizzes",
                 "text": "List quizzes games",
@@ -167,7 +170,7 @@
             "alignItems": "center",
             "children": [
               {
-                "align": "left",
+                "align": "center",
                 "clickable": true,
                 "color": "secondary",
                 "icon": "ranking.svg",
@@ -176,6 +179,7 @@
                 "widget": "Icon"
               },
               {
+                "align": "center",
                 "color": "default",
                 "name": "labelRanking",
                 "text": "Ranking",
@@ -194,7 +198,7 @@
         "verticalSeparation": "large"
       }
     ],
-    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-area-default",
+    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large",
     "horizontalSeparation": "large",
     "layout": "container",
     "verticalSeparation": "large"
