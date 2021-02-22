@@ -103,8 +103,18 @@
             "variableName": "record"
           },
           {
+            "command": "Set",
+            "expression": "{}",
+            "variableName": "result"
+          },
+          {
+            "command": "Set",
+            "expression": "GetFormatedElapsedTime( record.totalTime )",
+            "variableName": "result.text"
+          },
+          {
             "command": "Return",
-            "expression": "{ text: GetFormatedElapsedTime( record.totalTime ) }"
+            "expression": "result"
           }
         ],
         "typeReturn": "obj(icon:string, text:string)",
@@ -112,6 +122,10 @@
           {
             "name": "record",
             "type": "QuizzesMicroservice.Game"
+          },
+          {
+            "name": "result",
+            "type": "RenderColumnResult"
           }
         ]
       },
