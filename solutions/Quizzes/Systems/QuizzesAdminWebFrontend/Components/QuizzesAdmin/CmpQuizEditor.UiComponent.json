@@ -23,10 +23,6 @@
         "typeReturn": "any",
         "variables": [
           {
-            "name": "instance",
-            "type": "QuizzesMicroservice.Quiz"
-          },
-          {
             "name": "topicList",
             "type": "list( QuizzesMicroservice.Topic )"
           }
