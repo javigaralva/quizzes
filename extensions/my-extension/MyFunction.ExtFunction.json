@@ -1,7 +1,13 @@
 {
   "async": false,
   "dual": false,
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "a",
+      "remarks": "ssss",
+      "type": "string"
+    }
+  ],
   "remarks": "",
   "typeReturn": "any"
 }
